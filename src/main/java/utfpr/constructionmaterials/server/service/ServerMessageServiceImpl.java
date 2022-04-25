@@ -3,7 +3,9 @@ package utfpr.constructionmaterials.server.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utfpr.constructionmaterials.server.repositories.users.UsersRepository;
 
 @Service
 public class ServerMessageServiceImpl implements ServerMessageService {
@@ -12,12 +14,31 @@ public class ServerMessageServiceImpl implements ServerMessageService {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
+    @Autowired
+    private UsersRepository usersRepository;
+
     @Override
     public byte[] processMessage(byte[] message) {
-        String messageContent = new String(message);
-        LOGGER.info("Receive message: {}", messageContent);
-        String responseContent = String.format("Message \"%s\" is processed", messageContent);
-        return responseContent.getBytes();
+        String eventName;
+        try {
+            eventName = objectMapper.readTree(message).fields().next().getKey();
+            LOGGER.info("Received event name: {}", eventName);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+
+//        TODO: Switch case boladão
+
+//        Ja está funcional, comentado para poupar o banco
+//
+//        try {
+//            RegisterDTO registerDTO = objectMapper.readValue(message, RegisterDTO.class);
+//            usersRepository.save(registerDTO.getRegister());
+//        } catch (Exception ex) {
+//            throw new RuntimeException(ex);
+//        }
+
+        return String.format("Received event name:" + eventName).getBytes();
     }
 
 }

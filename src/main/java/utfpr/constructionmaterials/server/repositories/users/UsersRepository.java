@@ -1,4 +1,4 @@
-package utfpr.constructionmaterials.repositories.users;
+package utfpr.constructionmaterials.server.repositories.users;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;

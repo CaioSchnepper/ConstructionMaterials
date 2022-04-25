@@ -7,9 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utfpr.constructionmaterials.client.gateway.TcpClientGateway;
-import utfpr.constructionmaterials.entities.events.Event;
-import utfpr.constructionmaterials.entities.registers.Register;
 import utfpr.constructionmaterials.entities.users.User;
+import utfpr.constructionmaterials.events.registers.RegisterDTO;
 
 @Service
 public class ClientMessageServiceImpl implements ClientMessageService {
@@ -29,10 +28,9 @@ public class ClientMessageServiceImpl implements ClientMessageService {
     @Override
     public void sendMessage() {
         User user = new User(1L, "Caio", "123456", "123", "42069");
-        Register register = new Register(user);
-        Event event = new Event(register);
+        RegisterDTO register = new RegisterDTO(user);
 
-        String jsonRegister = objectMapper.writeValueAsString(event);
+        String jsonRegister = objectMapper.writeValueAsString(register);
         LOGGER.info("Send message: {}", jsonRegister);
         byte[] responseBytes = tcpClientGateway.send(jsonRegister.getBytes());
         String response = new String(responseBytes);
