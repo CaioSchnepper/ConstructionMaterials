@@ -1,4 +1,4 @@
-package utfpr.constructionmaterials.server.service;
+package utfpr.constructionmaterials.server.services.serverMessageService;
 
 public interface ServerMessageService {
 

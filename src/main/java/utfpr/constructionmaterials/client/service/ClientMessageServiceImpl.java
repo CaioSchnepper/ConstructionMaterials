@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utfpr.constructionmaterials.client.gateway.TcpClientGateway;
 import utfpr.constructionmaterials.entities.users.User;
-import utfpr.constructionmaterials.events.registers.RegisterDTO;
+import utfpr.constructionmaterials.events.users.UserRegisterDTO;
 
 @Service
 public class ClientMessageServiceImpl implements ClientMessageService {
@@ -28,7 +28,7 @@ public class ClientMessageServiceImpl implements ClientMessageService {
     @Override
     public void sendMessage() {
         User user = new User(1L, "Caio", "123456", "123", "42069");
-        RegisterDTO register = new RegisterDTO(user);
+        UserRegisterDTO register = new UserRegisterDTO(user);
 
         String jsonRegister = objectMapper.writeValueAsString(register);
         LOGGER.info("Send message: {}", jsonRegister);

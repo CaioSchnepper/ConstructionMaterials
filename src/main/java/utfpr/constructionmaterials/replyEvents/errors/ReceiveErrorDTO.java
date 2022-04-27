@@ -1,16 +1,15 @@
-package utfpr.constructionmaterials.events.registers;
+package utfpr.constructionmaterials.replyEvents.errors;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import utfpr.constructionmaterials.entities.users.User;
 import utfpr.constructionmaterials.events.EventDTO;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterDTO implements EventDTO {
+public class ReceiveErrorDTO implements EventDTO {
 
-    private User register;
+    private ErrorDTO receive;
 
 }

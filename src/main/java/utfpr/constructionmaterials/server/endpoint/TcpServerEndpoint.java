@@ -3,7 +3,7 @@ package utfpr.constructionmaterials.server.endpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.annotation.MessageEndpoint;
 import org.springframework.integration.annotation.ServiceActivator;
-import utfpr.constructionmaterials.server.service.ServerMessageService;
+import utfpr.constructionmaterials.server.services.serverMessageService.ServerMessageService;
 
 @MessageEndpoint
 public class TcpServerEndpoint {

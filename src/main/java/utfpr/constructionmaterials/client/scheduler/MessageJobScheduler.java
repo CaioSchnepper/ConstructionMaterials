@@ -5,7 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import utfpr.constructionmaterials.client.service.ClientMessageService;
 
-import static utfpr.constructionmaterials.shared.constants.TcpClientConstants.KEEP_ALIVE_DELAY;
+import static utfpr.constructionmaterials.shared.constants.ClientConfigs.KEEP_ALIVE_DELAY;
 
 @Component
 public class MessageJobScheduler {
