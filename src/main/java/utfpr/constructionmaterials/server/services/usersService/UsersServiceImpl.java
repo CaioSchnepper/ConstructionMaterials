@@ -1,6 +1,6 @@
 package utfpr.constructionmaterials.server.services.usersService;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import utfpr.constructionmaterials.events.users.UserLoginDTO;
 import utfpr.constructionmaterials.events.users.UserRegisterDTO;
 import utfpr.constructionmaterials.events.users.UserUpdateDTO;
@@ -8,7 +8,7 @@ import utfpr.constructionmaterials.replyEvents.users.UserLoginReplyDTO;
 import utfpr.constructionmaterials.replyEvents.users.UserRegisterReplyDTO;
 import utfpr.constructionmaterials.replyEvents.users.UserUpdateReplyDTO;
 
-@Component
+@Service
 public class UsersServiceImpl implements UsersService {
 
     @Override

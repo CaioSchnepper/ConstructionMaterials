@@ -8,29 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utfpr.constructionmaterials.client.gateway.TcpClientGateway;
 import utfpr.constructionmaterials.entities.users.User;
+import utfpr.constructionmaterials.events.users.UserDTO;
 import utfpr.constructionmaterials.events.users.UserRegisterDTO;
+import utfpr.constructionmaterials.shared.helpers.JsonHelper;
 
 @Service
 public class ClientMessageServiceImpl implements ClientMessageService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClientMessageServiceImpl.class);
 
-    private TcpClientGateway tcpClientGateway;
-
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final TcpClientGateway tcpClientGateway;
 
     @Autowired
     public ClientMessageServiceImpl(TcpClientGateway tcpClientGateway) {
         this.tcpClientGateway = tcpClientGateway;
     }
 
-    @SneakyThrows
     @Override
     public void sendMessage() {
-        User user = new User(1L, "Caio", "123456", "123", "42069");
-        UserRegisterDTO register = new UserRegisterDTO(user);
+        User user = new User("Caio", "123456", "123", "42069");
+        UserDTO userDTO = JsonHelper.map(user, UserDTO.class);
+        UserRegisterDTO register = new UserRegisterDTO(userDTO);
 
-        String jsonRegister = objectMapper.writeValueAsString(register);
+        String jsonRegister = JsonHelper.mapToJson(register);
         LOGGER.info("Send message: {}", jsonRegister);
         byte[] responseBytes = tcpClientGateway.send(jsonRegister.getBytes());
         String response = new String(responseBytes);

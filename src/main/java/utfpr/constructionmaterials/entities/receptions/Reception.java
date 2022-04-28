@@ -1,24 +1,27 @@
 package utfpr.constructionmaterials.entities.receptions;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document("Receptions")
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class Reception {
 
     @Id
-    private Long id;
+    private String id = UUID.randomUUID().toString();
 
+    @NonNull
     private Long quantity;
 
+    @NonNull
     private String idDonation;
 
+    @NonNull
     private String idReceiver;
 
 }

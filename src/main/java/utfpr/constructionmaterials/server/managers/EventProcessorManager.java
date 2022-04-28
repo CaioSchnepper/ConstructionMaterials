@@ -1,6 +1,7 @@
 package utfpr.constructionmaterials.server.managers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.events.donations.DonationCreateDTO;
 import utfpr.constructionmaterials.events.donations.DonationDeleteDTO;
@@ -19,21 +20,31 @@ import utfpr.constructionmaterials.server.services.usersService.UsersService;
 import static utfpr.constructionmaterials.shared.constants.EventNames.*;
 import static utfpr.constructionmaterials.shared.helpers.JsonHelper.mapFromJson;
 
+@Component
 public class EventProcessorManager {
 
-    @Autowired
-    private static UsersService usersService;
+    private final UsersService usersService;
+
+    private final DonationsService donationsService;
+
+    private final ReceptionsService receptionsService;
+
+    private final TransactionsService transactionsService;
 
     @Autowired
-    private static DonationsService donationsService;
+    public EventProcessorManager(
+            UsersService usersService,
+            DonationsService donationsService,
+            ReceptionsService receptionsService,
+            TransactionsService transactionsService
+    ) {
+        this.usersService = usersService;
+        this.donationsService = donationsService;
+        this.receptionsService = receptionsService;
+        this.transactionsService = transactionsService;
+    }
 
-    @Autowired
-    private static ReceptionsService receptionsService;
-
-    @Autowired
-    private static TransactionsService transactionsService;
-
-    public static EventDTO processEvent(String eventName, byte[] message) {
+    public EventDTO processEvent(String eventName, byte[] message) {
         switch (eventName) {
             case LOGIN:
                 return usersService.login(mapFromJson(message, UserLoginDTO.class));

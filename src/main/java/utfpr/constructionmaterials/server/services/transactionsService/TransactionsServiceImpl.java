@@ -1,10 +1,10 @@
 package utfpr.constructionmaterials.server.services.transactionsService;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import utfpr.constructionmaterials.events.transactions.ClientTransactionListDTO;
 import utfpr.constructionmaterials.replyEvents.transactions.ClientTransactionsReplyDTO;
 
-@Component
+@Service
 public class TransactionsServiceImpl implements TransactionsService{
 
     @Override

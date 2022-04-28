@@ -1,6 +1,7 @@
 package utfpr.constructionmaterials.shared.helpers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import utfpr.constructionmaterials.events.EventDTO;
 
@@ -32,6 +33,10 @@ public class JsonHelper {
         } catch (JsonProcessingException ex) {
             throw new RuntimeException("Erro ao mapear o objeto em Json", ex);
         }
+    }
+
+    public static <T> T map(Object from, Class<T> toType) {
+        return objectMapper.convertValue(from, toType);
     }
 
 }
