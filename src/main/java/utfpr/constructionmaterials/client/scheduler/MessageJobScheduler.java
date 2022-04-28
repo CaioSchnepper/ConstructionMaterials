@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import utfpr.constructionmaterials.client.service.ClientMessageService;
+import utfpr.constructionmaterials.events.EventDTO;
 
 import static utfpr.constructionmaterials.shared.constants.ClientConfigs.KEEP_ALIVE_DELAY;
 
@@ -17,9 +18,10 @@ public class MessageJobScheduler {
         this.clientMessageService = clientMessageService;
     }
 
-    @Scheduled(fixedDelay = KEEP_ALIVE_DELAY)
-    public void sendMessageJob() {
-        clientMessageService.sendMessage();
-    }
+//    TODO: Disabled for now
+//    @Scheduled(fixedDelay = KEEP_ALIVE_DELAY)
+//    public void sendMessageJob() {
+//        clientMessageService.sendMessage(new EventDTO() { });
+//    }
 
 }
