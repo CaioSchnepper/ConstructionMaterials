@@ -10,7 +10,7 @@ import static utfpr.constructionmaterials.shared.constants.ClientConfigs.KEEP_AL
 @Component
 public class MessageJobScheduler {
 
-    private ClientMessageService clientMessageService;
+    private final ClientMessageService clientMessageService;
 
     @Autowired
     public MessageJobScheduler(ClientMessageService clientMessageService) {
