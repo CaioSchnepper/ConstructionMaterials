@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.springframework.stereotype.Controller;
+import utfpr.constructionmaterials.client.service.ClientMessageHelper;
 import utfpr.constructionmaterials.events.users.UserLoginDTO;
 import utfpr.constructionmaterials.events.users.UserSimpleDTO;
 
+@Controller
 public class LoginController {
 
     @FXML
@@ -24,18 +27,18 @@ public class LoginController {
 
     @FXML
     public void login(ActionEvent actionEvent) {
-        if (isUserNotValid()) return;
-        UserSimpleDTO userSimpleDTO = new UserSimpleDTO(cpf.getText(), password.getText());
-        UserLoginDTO userLoginDTO = new UserLoginDTO(userSimpleDTO);
-        //clientMessageService.sendMessage(userLoginDTO);
+        if (userIsInvalid()) return;
+        UserLoginDTO loginDTO = new UserSimpleDTO(cpf.getText(), password.getText()).toUserLoginDTO();
+        ClientMessageHelper.send(loginDTO);
     }
 
     @FXML
     public void register(ActionEvent actionEvent) {
     }
 
-    private boolean isUserNotValid() {
+    private boolean userIsInvalid() {
         return cpf.getText().isEmpty() || password.getText().isEmpty();
     }
+
 }
 

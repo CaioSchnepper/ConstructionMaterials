@@ -26,7 +26,7 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public UserRegisterReplyDTO register(UserRegisterDTO userRegisterDTO) {
         User user = JsonHelper.map(userRegisterDTO.getRegister(), User.class);
-        //usersRepository.save(user);
+        usersRepository.save(user);
         return new UserRegisterReplyDTO();
     }
 

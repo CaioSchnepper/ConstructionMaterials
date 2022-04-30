@@ -13,4 +13,7 @@ public class UserSimpleDTO {
 
     private String password;
 
+    public UserLoginDTO toUserLoginDTO() {
+        return new UserLoginDTO(this);
+    }
 }
