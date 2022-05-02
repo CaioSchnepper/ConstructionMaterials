@@ -18,4 +18,6 @@ public class ErrorMessages {
 
     public static final String MISSING_FIELDS = "Todos os campos são obrigatórios";
 
+    public static final String NO_INSTANCE_ERROR = "Não há uma instância disponível";
+
 }

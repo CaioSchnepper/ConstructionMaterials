@@ -8,12 +8,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import org.springframework.stereotype.Controller;
 import utfpr.constructionmaterials.client.services.clientMessageService.ClientMessageHelper;
+import utfpr.constructionmaterials.entities.users.User;
 import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.events.users.UserLoginDTO;
 import utfpr.constructionmaterials.events.users.UserSimpleDTO;
 import utfpr.constructionmaterials.replyEvents.errors.LoginErrorDTO;
+import utfpr.constructionmaterials.replyEvents.users.UserLoginReplyDTO;
 import utfpr.constructionmaterials.shared.constants.ErrorMessages;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
+import utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper;
+import utfpr.constructionmaterials.shared.singletons.CurrentUser;
 
 import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.HOME;
 import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.REGISTER;
@@ -47,11 +51,11 @@ public class LoginController {
 
         EventDTO result = ClientMessageHelper.send(loginDTO);
 
-        //TODO Salvar usuario em memória
-
         if (result instanceof LoginErrorDTO) {
             FXMLHelper.showErrorAlert(((LoginErrorDTO) result).getLogin().getError(), loginPane);
         } else {
+            User user = ObjectMapperHelper.map(((UserLoginReplyDTO) result).getLogin(), User.class);
+            CurrentUser.setInstance(user);
             FXMLHelper.showSuccessAlert(LOGIN_SUCCESS, loginPane);
             navigateToHome();
         }
