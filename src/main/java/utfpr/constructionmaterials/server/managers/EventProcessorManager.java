@@ -17,8 +17,9 @@ import utfpr.constructionmaterials.server.services.receptionsService.ReceptionsS
 import utfpr.constructionmaterials.server.services.transactionsService.TransactionsService;
 import utfpr.constructionmaterials.server.services.usersService.UsersService;
 
+import static utfpr.constructionmaterials.shared.constants.ErrorMessages.EVENT_NAME_INVALID;
 import static utfpr.constructionmaterials.shared.constants.EventNames.*;
-import static utfpr.constructionmaterials.shared.helpers.JsonHelper.mapFromJson;
+import static utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper.mapFromJson;
 
 @Component
 public class EventProcessorManager {
@@ -65,7 +66,7 @@ public class EventProcessorManager {
             case USER_UPDATE:
                 return usersService.update(mapFromJson(message, UserUpdateDTO.class));
             default:
-                throw new IllegalArgumentException("Evento não cadastrado");
+                throw new IllegalArgumentException(EVENT_NAME_INVALID);
         }
     }
 

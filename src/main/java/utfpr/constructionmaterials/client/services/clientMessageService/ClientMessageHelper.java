@@ -1,4 +1,4 @@
-package utfpr.constructionmaterials.client.service;
+package utfpr.constructionmaterials.client.services.clientMessageService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ public class ClientMessageHelper {
         ClientMessageHelper.clientMessageService = clientMessageService;
     }
 
-    public static void send(EventDTO eventDTO) {
-        clientMessageService.sendMessage(eventDTO);
+    public static EventDTO send(EventDTO eventDTO) {
+        return clientMessageService.sendMessage(eventDTO);
     }
 
 }

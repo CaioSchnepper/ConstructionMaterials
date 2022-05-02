@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.server.managers.EventProcessorManager;
-import utfpr.constructionmaterials.shared.helpers.JsonHelper;
+import utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper;
 
 @Service
 public class ServerMessageServiceImpl implements ServerMessageService {
@@ -24,11 +24,11 @@ public class ServerMessageServiceImpl implements ServerMessageService {
     public byte[] processMessage(byte[] message) {
         LOGGER.info("Received message: " + new String(message));
 
-        String eventName = JsonHelper.getEventName(message);
+        String eventName = ObjectMapperHelper.getEventName(message);
 
         EventDTO reply = eventProcessorManager.processEvent(eventName, message);
 
-        return JsonHelper.mapToJson(reply).getBytes();
+        return ObjectMapperHelper.mapToJson(reply).getBytes();
     }
 
 }

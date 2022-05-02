@@ -19,4 +19,8 @@ public class UserDTO {
 
     private String phone;
 
+    public UserRegisterDTO toUserRegisterDTO() {
+        return new UserRegisterDTO(this);
+    }
+
 }

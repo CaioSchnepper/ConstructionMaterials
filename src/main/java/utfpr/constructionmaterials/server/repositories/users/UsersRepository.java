@@ -9,4 +9,6 @@ public interface UsersRepository extends MongoRepository<User, String> {
     @Query("{cpf:'?0'}")
     User findByCpf(String cpf);
 
+    boolean existsByCpf(String cpf);
+
 }

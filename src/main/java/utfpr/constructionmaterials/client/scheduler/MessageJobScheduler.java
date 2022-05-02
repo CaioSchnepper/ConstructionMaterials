@@ -1,12 +1,8 @@
 package utfpr.constructionmaterials.client.scheduler;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import utfpr.constructionmaterials.client.service.ClientMessageService;
-import utfpr.constructionmaterials.events.EventDTO;
-
-import static utfpr.constructionmaterials.shared.constants.ClientConfigs.KEEP_ALIVE_DELAY;
+import utfpr.constructionmaterials.client.services.clientMessageService.ClientMessageService;
 
 @Component
 public class MessageJobScheduler {

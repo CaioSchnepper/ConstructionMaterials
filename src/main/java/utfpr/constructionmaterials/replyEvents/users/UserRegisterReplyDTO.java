@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import utfpr.constructionmaterials.events.EventDTO;
+import utfpr.constructionmaterials.replyEvents.success.EmptyObject;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserRegisterReplyDTO implements EventDTO {
 
-    private String register = "{ }";
+    private EmptyObject register = new EmptyObject();
 
 }
