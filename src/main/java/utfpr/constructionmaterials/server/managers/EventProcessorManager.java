@@ -3,6 +3,7 @@ package utfpr.constructionmaterials.server.managers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import utfpr.constructionmaterials.events.EventDTO;
+import utfpr.constructionmaterials.events.connection.CloseConnectionDTO;
 import utfpr.constructionmaterials.events.donations.DonationCreateDTO;
 import utfpr.constructionmaterials.events.donations.DonationDeleteDTO;
 import utfpr.constructionmaterials.events.donations.DonationUpdateDTO;
@@ -12,6 +13,7 @@ import utfpr.constructionmaterials.events.transactions.ClientTransactionListDTO;
 import utfpr.constructionmaterials.events.users.UserLoginDTO;
 import utfpr.constructionmaterials.events.users.UserRegisterDTO;
 import utfpr.constructionmaterials.events.users.UserUpdateDTO;
+import utfpr.constructionmaterials.server.services.connectionService.ConnectionService;
 import utfpr.constructionmaterials.server.services.donationsService.DonationsService;
 import utfpr.constructionmaterials.server.services.receptionsService.ReceptionsService;
 import utfpr.constructionmaterials.server.services.transactionsService.TransactionsService;
@@ -32,17 +34,21 @@ public class EventProcessorManager {
 
     private final TransactionsService transactionsService;
 
+    private final ConnectionService connectionService;
+
     @Autowired
     public EventProcessorManager(
             UsersService usersService,
             DonationsService donationsService,
             ReceptionsService receptionsService,
-            TransactionsService transactionsService
+            TransactionsService transactionsService,
+            ConnectionService connectionService
     ) {
         this.usersService = usersService;
         this.donationsService = donationsService;
         this.receptionsService = receptionsService;
         this.transactionsService = transactionsService;
+        this.connectionService = connectionService;
     }
 
     public EventDTO processEvent(String eventName, byte[] message) {
@@ -65,6 +71,8 @@ public class EventProcessorManager {
                 return donationsService.delete(mapFromJson(message, DonationDeleteDTO.class));
             case USER_UPDATE:
                 return usersService.update(mapFromJson(message, UserUpdateDTO.class));
+            case CLOSE:
+                return connectionService.close(mapFromJson(message, CloseConnectionDTO.class));
             default:
                 throw new IllegalArgumentException(EVENT_NAME_INVALID);
         }

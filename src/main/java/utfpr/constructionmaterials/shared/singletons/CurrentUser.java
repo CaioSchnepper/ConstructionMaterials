@@ -27,4 +27,8 @@ public class CurrentUser {
         if (INSTANCE == null) INSTANCE = new CurrentUser(user);
     }
 
+    public static synchronized void destroyInstance() {
+        INSTANCE = null;
+    }
+
 }

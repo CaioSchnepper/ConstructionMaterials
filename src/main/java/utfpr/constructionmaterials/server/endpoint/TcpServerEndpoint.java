@@ -8,7 +8,7 @@ import utfpr.constructionmaterials.server.services.serverMessageService.ServerMe
 @MessageEndpoint
 public class TcpServerEndpoint {
 
-    private ServerMessageService serverMessageService;
+    private final ServerMessageService serverMessageService;
 
     @Autowired
     public TcpServerEndpoint(ServerMessageService serverMessageService) {

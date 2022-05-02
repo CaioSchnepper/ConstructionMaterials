@@ -2,6 +2,7 @@ package utfpr.constructionmaterials.client.managers;
 
 import org.springframework.stereotype.Component;
 import utfpr.constructionmaterials.events.EventDTO;
+import utfpr.constructionmaterials.replyEvents.connection.CloseConnectionReplyDTO;
 import utfpr.constructionmaterials.replyEvents.donations.DonationCreateReplyDTO;
 import utfpr.constructionmaterials.replyEvents.donations.DonationDeleteReplyDTO;
 import utfpr.constructionmaterials.replyEvents.donations.DonationUpdateReplyDTO;
@@ -62,6 +63,10 @@ public class EventReplyProcessorManager {
                 return isErrorEvent
                         ? mapFromJson(message, UserUpdateErrorDTO.class)
                         : mapFromJson(message, UserUpdateReplyDTO.class);
+            case CLOSE:
+                return isErrorEvent
+                        ? mapFromJson(message, CloseConnectionErrorDTO.class)
+                        : mapFromJson(message, CloseConnectionReplyDTO.class);
             default:
                 throw new IllegalArgumentException(EVENT_NAME_INVALID);
         }
