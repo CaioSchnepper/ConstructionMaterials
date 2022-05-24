@@ -44,12 +44,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.HomeController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.TransactionsListController">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Doacoes" />
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="donationsTable" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Codigo" />
                 <TableColumn prefWidth="75.0" text="Descricao" />
@@ -58,7 +58,7 @@
               </columns>
             </TableView>
             <Label text="Recepcoes" />
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="receptionsTable" prefHeight="200.0" prefWidth="200.0">
                <columns>
                   <TableColumn prefWidth="75.0" text="Codigo" />
                   <TableColumn prefWidth="75.0" text="Descricao" />

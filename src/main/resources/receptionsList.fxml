@@ -44,11 +44,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.HomeController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ReceptionsListController">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="407.0" prefWidth="335.0">
+            <TableView fx:id="receptionsTable" prefHeight="407.0" prefWidth="335.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Codigo" />
                 <TableColumn prefWidth="75.0" text="Descricao" />
@@ -77,8 +77,8 @@
    <bottom>
       <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
-            <BottomNavigationButton prefHeight="30.0" prefWidth="415.0" text="Atualizar lista" />
-            <BottomNavigationButton prefHeight="30.0" prefWidth="415.0" text="Menu principal" />
+            <BottomNavigationButton onAction="#updateList" prefHeight="30.0" prefWidth="415.0" text="Atualizar lista" />
+            <BottomNavigationButton onAction="#menu" prefHeight="30.0" prefWidth="415.0" text="Menu principal" />
          </children></VBox>
    </bottom>
 </View>

@@ -45,7 +45,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.HomeController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ServerViewController">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
@@ -61,9 +61,9 @@
                   <Insets bottom="20.0" left="30.0" right="30.0" />
                </VBox.margin>
             </TextField>
-            <BottomNavigationButton prefHeight="30.0" prefWidth="415.0" text="Iniciar" />
-            <BottomNavigationButton prefHeight="30.0" prefWidth="415.0" text="Parar" />
-            <TableView prefHeight="154.0" prefWidth="335.0">
+            <BottomNavigationButton onAction="#start" prefHeight="30.0" prefWidth="415.0" text="Iniciar" />
+            <BottomNavigationButton onAction="#stop" prefHeight="30.0" prefWidth="415.0" text="Parar" />
+            <TableView fx:id="usersTable" prefHeight="154.0" prefWidth="335.0">
               <columns>
                 <TableColumn fx:id="userName" prefWidth="111.0" text="Nome usuario" />
                 <TableColumn fx:id="userIp" prefWidth="155.0" text="IP" />

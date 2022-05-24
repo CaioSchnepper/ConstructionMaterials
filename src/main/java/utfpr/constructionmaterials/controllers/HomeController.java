@@ -1,5 +1,6 @@
 package utfpr.constructionmaterials.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -17,12 +18,12 @@ import static utfpr.constructionmaterials.shared.constants.SuccessMessages.LOGOU
 
 public class HomeController {
     @FXML
-    private Button logout;
-    @FXML
     private Pane homePane;
+    @FXML
+    private Button logout;
 
     @FXML
-    public void logoutUser() {
+    public void logoutUser(ActionEvent actionEvent) {
         User currentUser = CurrentUser.getInstance().getUser(); // Exemplo de como buscar o usuário logado
 
         CloseConnectionDTO closeDTO = new CloseConnectionDTO();
