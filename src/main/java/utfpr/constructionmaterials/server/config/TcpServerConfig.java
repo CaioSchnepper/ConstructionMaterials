@@ -28,8 +28,10 @@ public class TcpServerConfig {
     }
 
     @Bean
-    public TcpInboundGateway inboundGateway(AbstractServerConnectionFactory serverConnectionFactory,
-                                            MessageChannel inboundChannel) {
+    public TcpInboundGateway inboundGateway(
+            AbstractServerConnectionFactory serverConnectionFactory,
+            MessageChannel inboundChannel
+    ) {
         TcpInboundGateway tcpInboundGateway = new TcpInboundGateway();
         tcpInboundGateway.setConnectionFactory(serverConnectionFactory);
         tcpInboundGateway.setRequestChannel(inboundChannel);

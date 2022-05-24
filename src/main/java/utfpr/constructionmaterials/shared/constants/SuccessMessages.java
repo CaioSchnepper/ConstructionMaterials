@@ -8,4 +8,6 @@ public class SuccessMessages {
 
     public static final String LOGOUT_SUCCESS = "Usuário deslogado com sucesso";
 
+    public static final String CONFIGURATION_SUCCESS = "Servidor configurado com sucesso";
+
 }
