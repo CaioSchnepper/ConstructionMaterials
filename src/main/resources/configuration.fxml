@@ -44,7 +44,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ConfigurationController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ConfigurationController">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="383.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
@@ -65,12 +65,12 @@
                </VBox.margin>
             </TextField>
             <BottomNavigationButton onAction="#enterServer" prefHeight="30.0" prefWidth="415.0" text="Entrar" />
-            <Button mnemonicParsing="false" onAction="#aplicationExit" prefHeight="30.0" prefWidth="506.0" text="Cancelar" />
+            <Button mnemonicParsing="false" onAction="#applicationExit" prefHeight="30.0" prefWidth="506.0" text="Cancelar" />
          </children>
       </VBox>
    </center>
    <top>
-      <Pane prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+      <Pane fx:id="configurationPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="11.0" prefHeight="29.0" prefWidth="143.0" text="Configuracoes" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font name="System Bold" size="20.0" />
