@@ -25,11 +25,11 @@ public class ClientMessageServiceImpl implements ClientMessageService {
     public EventDTO sendMessage(EventDTO eventDTO) {
         String eventJson = ObjectMapperHelper.mapToJson(eventDTO);
 
-        LOGGER.info("Send message: {}", eventJson);
+        LOGGER.info("Client send message: {}", eventJson);
 
         byte[] responseBytes = tcpClientGateway.send(eventJson.getBytes());
 
-        LOGGER.info("Receive response: {}", new String(responseBytes));
+        LOGGER.info("Client receive response: {}", new String(responseBytes));
 
         String eventName = ObjectMapperHelper.getEventName(responseBytes);
 

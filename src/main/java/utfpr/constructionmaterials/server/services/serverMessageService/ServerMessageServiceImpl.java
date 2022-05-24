@@ -22,7 +22,7 @@ public class ServerMessageServiceImpl implements ServerMessageService {
 
     @Override
     public byte[] processMessage(byte[] message) {
-        LOGGER.info("Received message: " + new String(message));
+        LOGGER.info("Server received message: " + new String(message));
 
         String eventName = ObjectMapperHelper.getEventName(message);
 
