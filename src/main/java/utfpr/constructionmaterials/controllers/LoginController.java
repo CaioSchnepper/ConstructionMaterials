@@ -1,7 +1,6 @@
 package utfpr.constructionmaterials.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -57,21 +56,13 @@ public class LoginController {
             User user = ObjectMapperHelper.map(((UserLoginReplyDTO) result).getLogin(), User.class);
             CurrentUser.setInstance(user);
             FXMLHelper.showSuccessAlert(LOGIN_SUCCESS, loginPane);
-            navigateToHome();
+            FXMLHelper.navigateTo(HOME, loginPane);
         }
     }
 
     @FXML
     public void navigateToRegister() {
-        Parent registerPane = FXMLHelper.load(REGISTER);
-        loginPane.getChildren().clear();
-        loginPane.getScene().setRoot(registerPane);
-    }
-
-    private void navigateToHome() {
-        Parent homePane = FXMLHelper.load(HOME);
-        loginPane.getChildren().clear();
-        loginPane.getScene().setRoot(homePane);
+        FXMLHelper.navigateTo(REGISTER, loginPane);
     }
 
     private boolean userIsInvalid() {

@@ -70,7 +70,7 @@
       </VBox>
    </center>
    <top>
-      <Pane fx:id="homePane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+      <Pane fx:id="transactionsListPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="329.0" text="Lista de transacoes do cliente" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <font>
                <Font name="System Bold" size="20.0" />

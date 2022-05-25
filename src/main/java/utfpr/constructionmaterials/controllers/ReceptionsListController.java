@@ -1,20 +1,21 @@
 package utfpr.constructionmaterials.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
 public class ReceptionsListController {
-    @javafx.fxml.FXML
+    @FXML
     private TableView receptionsTable;
-    @javafx.fxml.FXML
-    private Pane homePane;
+    @FXML
+    private Pane receptionsListPane;
 
-    @javafx.fxml.FXML
+    @FXML
     public void menu(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void updateList(ActionEvent actionEvent) {
     }
 }

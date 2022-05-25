@@ -1,7 +1,7 @@
 package utfpr.constructionmaterials.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.scene.Parent;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import org.springframework.boot.SpringApplication;
@@ -16,14 +16,14 @@ import static utfpr.constructionmaterials.shared.constants.SuccessMessages.CONFI
 
 public class ConfigurationController {
 
-    @javafx.fxml.FXML
+    @FXML
     private TextField serverIp;
-    @javafx.fxml.FXML
+    @FXML
     private TextField serverPort;
-    @javafx.fxml.FXML
+    @FXML
     private Pane configurationPane;
 
-    @javafx.fxml.FXML
+    @FXML
     public void enterServer(ActionEvent actionEvent) {
 
         if (configIsInvalid()) {
@@ -36,18 +36,12 @@ public class ConfigurationController {
         clientApplication.run();
 
         FXMLHelper.showSuccessAlert(CONFIGURATION_SUCCESS, configurationPane);
-        navigateToLogin();
+        FXMLHelper.navigateTo(LOGIN, configurationPane);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void applicationExit(ActionEvent actionEvent) {
         //TODO
-    }
-
-    public void navigateToLogin() {
-        Parent loginPane = FXMLHelper.load(LOGIN);
-        configurationPane.getChildren().clear();
-        configurationPane.getScene().setRoot(loginPane);
     }
 
     private boolean configIsInvalid() {

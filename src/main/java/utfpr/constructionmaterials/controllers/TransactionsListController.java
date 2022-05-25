@@ -1,13 +1,14 @@
 package utfpr.constructionmaterials.controllers;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
 public class TransactionsListController {
-    @javafx.fxml.FXML
+    @FXML
     private TableView receptionsTable;
-    @javafx.fxml.FXML
-    private Pane homePane;
-    @javafx.fxml.FXML
+    @FXML
     private TableView donationsTable;
+    @FXML
+    private Pane transactionsListPane;
 }

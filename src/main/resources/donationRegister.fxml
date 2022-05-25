@@ -87,7 +87,7 @@
       </VBox>
    </center>
    <top>
-      <Pane fx:id="homePane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+      <Pane fx:id="donationRegisterPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="329.0" text="Cadastro de doacao" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font name="System Bold" size="20.0" />

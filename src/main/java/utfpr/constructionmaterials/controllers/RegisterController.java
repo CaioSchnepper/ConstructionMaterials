@@ -1,7 +1,6 @@
 package utfpr.constructionmaterials.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -35,9 +34,7 @@ public class RegisterController {
 
     @FXML
     public void navigateToLogin() {
-        Parent loginPane = FXMLHelper.load(LOGIN);
-        registerPane.getChildren().clear();
-        registerPane.getScene().setRoot(loginPane);
+        FXMLHelper.navigateTo(LOGIN, registerPane);
     }
 
     @FXML

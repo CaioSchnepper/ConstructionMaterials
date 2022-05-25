@@ -9,9 +9,14 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static utfpr.constructionmaterials.shared.constants.ErrorMessages.LOAD_FXML_ERROR;
-import static utfpr.constructionmaterials.shared.constants.SuccessMessages.REGISTER_SUCCESS;
 
 public class FXMLHelper {
+
+    public static void navigateTo(String newLocation, Pane oldLocation) {
+        Parent newPane = load(newLocation);
+        oldLocation.getChildren().clear();
+        oldLocation.getScene().setRoot(newPane);
+    }
 
     public static Parent load(String fileName){
         try {

@@ -2,24 +2,25 @@ package utfpr.constructionmaterials.controllers;
 
 import com.gluonhq.charm.glisten.control.DropdownButton;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 public class DonationRegisterController {
-    @javafx.fxml.FXML
+    @FXML
     private TextField amount;
-    @javafx.fxml.FXML
+    @FXML
     private DropdownButton unit;
-    @javafx.fxml.FXML
-    private Pane homePane;
-    @javafx.fxml.FXML
+    @FXML
     private TextField description;
+    @FXML
+    private Pane donationRegisterPane;
 
-    @javafx.fxml.FXML
+    @FXML
     public void cancel(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void send(ActionEvent actionEvent) {
     }
 }

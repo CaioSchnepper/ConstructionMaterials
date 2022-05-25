@@ -1,6 +1,7 @@
 package utfpr.constructionmaterials.shared.helpers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import utfpr.constructionmaterials.events.EventDTO;
@@ -13,7 +14,8 @@ import static utfpr.constructionmaterials.shared.constants.ErrorMessages.*;
 public class ObjectMapperHelper {
 
     private static final ObjectMapper objectMapper = new ObjectMapper()
-            .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+            .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
+            .configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
 
     public static <T extends EventDTO> T mapFromJson(byte[] message, Class<T> type) {
         try {

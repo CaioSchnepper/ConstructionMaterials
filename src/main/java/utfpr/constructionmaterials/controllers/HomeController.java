@@ -34,14 +34,8 @@ public class HomeController {
         } else {
             CurrentUser.destroyInstance();
             FXMLHelper.showSuccessAlert(LOGOUT_SUCCESS, homePane);
-            navigateToLogin();
+            FXMLHelper.navigateTo(LOGIN, homePane);
         }
-    }
-
-    private void navigateToLogin() {
-        Parent loginPane = FXMLHelper.load(LOGIN);
-        homePane.getChildren().clear();
-        homePane.getScene().setRoot(loginPane);
     }
 
 }
