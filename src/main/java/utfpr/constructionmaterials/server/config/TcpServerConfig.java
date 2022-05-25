@@ -19,6 +19,7 @@ public class TcpServerConfig {
     public AbstractServerConnectionFactory serverConnectionFactory() {
         TcpNioServerConnectionFactory serverConnectionFactory = new TcpNioServerConnectionFactory(port);
         serverConnectionFactory.setUsingDirectBuffers(true);
+        serverConnectionFactory.setMultiAccept(true);
         return serverConnectionFactory;
     }
 
