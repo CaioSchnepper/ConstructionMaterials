@@ -25,7 +25,7 @@ public class MainApplication extends Application {
         // Start the client
         //SpringApplication.run(ClientApplication.class, args);
         // Start the JavaFX crap
-        //launch(args);
+        launch(args);
     }
 
     @Override
