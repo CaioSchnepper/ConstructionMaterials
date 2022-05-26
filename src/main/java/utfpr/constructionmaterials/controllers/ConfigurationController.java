@@ -50,8 +50,8 @@ public class ConfigurationController {
 
     private Properties getServerProperties() {
         Properties properties = new Properties();
-        properties.put("tcp.server.host", serverIp);
-        properties.put("tcp.server.port", serverPort);
+        properties.put("tcp.target-server.host", serverIp.getText());
+        properties.put("tcp.target-server.port", serverPort.getText());
         return properties;
     }
 
