@@ -11,7 +11,9 @@ import utfpr.constructionmaterials.events.users.UserUpdateDTO;
 import utfpr.constructionmaterials.replyEvents.errors.ErrorDTO;
 import utfpr.constructionmaterials.replyEvents.errors.LoginErrorDTO;
 import utfpr.constructionmaterials.replyEvents.errors.RegisterErrorDTO;
+import utfpr.constructionmaterials.replyEvents.errors.UserUpdateErrorDTO;
 import utfpr.constructionmaterials.replyEvents.users.UserRegisterReplyDTO;
+import utfpr.constructionmaterials.replyEvents.users.UserUpdateReplyDTO;
 import utfpr.constructionmaterials.server.repositories.users.UsersRepository;
 import utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper;
 
@@ -55,7 +57,15 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public EventDTO update(UserUpdateDTO userUpdateDTO) {
-        return null;
+        User user = ObjectMapperHelper.map(userUpdateDTO.getUserUpdate(), User.class);
+
+        if (usersRepository.existsByCpf(user.getCpf())) {
+            usersRepository.save(user);
+            return new UserUpdateReplyDTO();
+        } else {
+            ErrorDTO error = new ErrorDTO(USER_NOT_FOUND);
+            return new UserUpdateErrorDTO(error);
+        }
     }
 
 }

@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DonationIdDTO {
 
-    private long Id;
+    private String Id;
 
 }

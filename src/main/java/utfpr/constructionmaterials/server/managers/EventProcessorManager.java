@@ -3,6 +3,9 @@ package utfpr.constructionmaterials.server.managers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import utfpr.constructionmaterials.events.EventDTO;
+import utfpr.constructionmaterials.events.chat.ChatDTO;
+import utfpr.constructionmaterials.events.chat.ChatRedirectionDTO;
+import utfpr.constructionmaterials.events.chat.StartChatDTO;
 import utfpr.constructionmaterials.events.connection.CloseConnectionDTO;
 import utfpr.constructionmaterials.events.donations.DonationCreateDTO;
 import utfpr.constructionmaterials.events.donations.DonationDeleteDTO;
@@ -13,6 +16,7 @@ import utfpr.constructionmaterials.events.transactions.ClientTransactionListDTO;
 import utfpr.constructionmaterials.events.users.UserLoginDTO;
 import utfpr.constructionmaterials.events.users.UserRegisterDTO;
 import utfpr.constructionmaterials.events.users.UserUpdateDTO;
+import utfpr.constructionmaterials.server.services.chatService.ChatService;
 import utfpr.constructionmaterials.server.services.connectionService.ConnectionService;
 import utfpr.constructionmaterials.server.services.donationsService.DonationsService;
 import utfpr.constructionmaterials.server.services.receptionsService.ReceptionsService;
@@ -25,16 +29,12 @@ import static utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper.mapF
 
 @Component
 public class EventProcessorManager {
-
     private final UsersService usersService;
-
     private final DonationsService donationsService;
-
     private final ReceptionsService receptionsService;
-
     private final TransactionsService transactionsService;
-
     private final ConnectionService connectionService;
+    private final ChatService chatService;
 
     @Autowired
     public EventProcessorManager(
@@ -42,13 +42,15 @@ public class EventProcessorManager {
             DonationsService donationsService,
             ReceptionsService receptionsService,
             TransactionsService transactionsService,
-            ConnectionService connectionService
+            ConnectionService connectionService,
+            ChatService chatService
     ) {
         this.usersService = usersService;
         this.donationsService = donationsService;
         this.receptionsService = receptionsService;
         this.transactionsService = transactionsService;
         this.connectionService = connectionService;
+        this.chatService = chatService;
     }
 
     public EventDTO processEvent(String eventName, byte[] message) {
@@ -71,6 +73,12 @@ public class EventProcessorManager {
                 return donationsService.delete(mapFromJson(message, DonationDeleteDTO.class));
             case USER_UPDATE:
                 return usersService.update(mapFromJson(message, UserUpdateDTO.class));
+            case START_CHAT:
+                return chatService.startChat(mapFromJson(message, StartChatDTO.class));
+            case CHAT:
+                return chatService.chat(mapFromJson(message, ChatDTO.class));
+            case CHAT_REDIRECTION:
+                return chatService.chatRedirection(mapFromJson(message, ChatRedirectionDTO.class));
             case CLOSE:
                 return connectionService.close(mapFromJson(message, CloseConnectionDTO.class));
             default:

@@ -1,4 +1,4 @@
-package utfpr.constructionmaterials.events.chat;
+package utfpr.constructionmaterials.replyEvents.receptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,8 +8,8 @@ import utfpr.constructionmaterials.events.EventDTO;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChatRedirectionDTO implements EventDTO {
+public class ReceptionListReplyDTO implements EventDTO {
 
-    private ChatFullDTO chatRedirection;
+    private ReceptionReplyDTO receptions;
 
 }

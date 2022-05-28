@@ -17,4 +17,8 @@ public class TransactionsReplyDTO {
 
     private List<ReceptionFullDTO> receives;
 
+    public ClientTransactionsReplyDTO toClientTransactionsReplyDTO() {
+        return new ClientTransactionsReplyDTO(this);
+    }
+
 }

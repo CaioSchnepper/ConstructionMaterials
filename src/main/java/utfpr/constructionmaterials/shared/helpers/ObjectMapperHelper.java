@@ -1,6 +1,8 @@
 package utfpr.constructionmaterials.shared.helpers;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -8,6 +10,7 @@ import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.shared.constants.EventNames;
 
 import java.io.IOException;
+import java.util.List;
 
 import static utfpr.constructionmaterials.shared.constants.ErrorMessages.*;
 

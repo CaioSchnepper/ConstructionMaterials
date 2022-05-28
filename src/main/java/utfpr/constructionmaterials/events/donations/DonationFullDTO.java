@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DonationFullDTO extends DonationDTO {
 
-    private Long id;
+    private String id;
 
 }
