@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import org.springframework.boot.SpringApplication;
+import utfpr.constructionmaterials.MainApplication;
+import utfpr.constructionmaterials.MainApplicationWrapper;
 import utfpr.constructionmaterials.client.ClientApplication;
 import utfpr.constructionmaterials.shared.constants.ErrorMessages;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
@@ -15,6 +17,8 @@ import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.LOGIN;
 import static utfpr.constructionmaterials.shared.constants.SuccessMessages.CONFIGURATION_SUCCESS;
 
 public class ConfigurationController {
+
+    private static final int EXIT_CODE = 0;
 
     @FXML
     private TextField serverIp;
@@ -41,7 +45,7 @@ public class ConfigurationController {
 
     @FXML
     public void applicationExit(ActionEvent actionEvent) {
-        //TODO
+        System.exit(EXIT_CODE);
     }
 
     private boolean configIsInvalid() {
