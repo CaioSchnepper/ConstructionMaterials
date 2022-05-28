@@ -17,4 +17,8 @@ public class DonationDTO {
 
     private String idDonor;
 
+    public DonationCreateDTO toDonationCreateDTO() {
+        return new DonationCreateDTO(this);
+    }
+
 }

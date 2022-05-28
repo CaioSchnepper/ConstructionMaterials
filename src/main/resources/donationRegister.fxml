@@ -33,75 +33,67 @@
 -->
 
 <?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
-<?import com.gluonhq.charm.glisten.control.DropdownButton?>
 <?import com.gluonhq.charm.glisten.mvc.View?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-      prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="utfpr.constructionmaterials.controllers.DonationRegisterController">
+
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.DonationRegisterController">
     <center>
         <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
                 <Label text="Descricao">
                     <VBox.margin>
-                        <Insets bottom="20.0" top="20.0"/>
+                        <Insets bottom="20.0" top="20.0" />
                     </VBox.margin>
                 </Label>
-                <TextField fx:id="description" alignment="CENTER" prefHeight="26.0" prefWidth="131.0"
-                           promptText="Informe a descricao">
+                <TextField fx:id="description" alignment="CENTER" prefHeight="26.0" prefWidth="131.0" promptText="Informe a descricao">
                     <VBox.margin>
-                        <Insets bottom="30.0" left="30.0" right="30.0"/>
+                        <Insets bottom="30.0" left="30.0" right="30.0" />
                     </VBox.margin>
                 </TextField>
-                <Label text="Quantidade"/>
-                <TextField fx:id="amount" alignment="CENTER" prefHeight="26.0" prefWidth="131.0"
-                           promptText="Informe a quantidade">
+                <Label text="Quantidade" />
+                <TextField fx:id="amount" alignment="CENTER" prefHeight="26.0" prefWidth="131.0" promptText="Informe a quantidade">
                     <VBox.margin>
-                        <Insets bottom="30.0" left="30.0" right="30.0"/>
+                        <Insets bottom="30.0" left="30.0" right="30.0" />
                     </VBox.margin>
                 </TextField>
-                <Label text="Unidade"/>
-                <DropdownButton fx:id="unit" prefHeight="27.0" prefWidth="205.0">
-                    <items>
-                        <MenuItem text="Choice 1"/>
-                        <MenuItem text="Choice 2"/>
-                        <MenuItem text="Choice 3"/>
-                    </items>
-                    <opaqueInsets>
-                        <Insets bottom="30.0" left="30.0" right="30.0"/>
-                    </opaqueInsets>
-                </DropdownButton>
-                <Button mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="506.0" text="Cancelar">
-                    <VBox.margin>
-                        <Insets top="130.0"/>
-                    </VBox.margin>
-                </Button>
-                <BottomNavigationButton onAction="#send" prefHeight="30.0" prefWidth="415.0" text="Entrar"/>
+                <Label text="Unidade" />
+            <ComboBox fx:id="units" prefWidth="150.0" />
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="donationRegisterPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;"
-              BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="329.0"
-                   text="Cadastro de doacao" textAlignment="CENTER" textFill="WHITE">
+        <Pane fx:id="donationRegisterPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="329.0" text="Cadastro de doacao" textAlignment="CENTER" textFill="WHITE">
                 <font>
-                    <Font name="System Bold" size="20.0"/>
+                    <Font name="System Bold" size="20.0" />
                 </font>
                 <padding>
-                    <Insets left="30.0" right="30.0" top="25.0"/>
+                    <Insets left="30.0" right="30.0" top="25.0" />
                 </padding>
             </Label>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER"/>
+        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+         <children>
+                <Button mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="506.0" text="Voltar">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </Button>
+                <BottomNavigationButton onAction="#send" prefHeight="30.0" prefWidth="415.0" text="Enviar" />
+         </children></VBox>
     </bottom>
 </View>

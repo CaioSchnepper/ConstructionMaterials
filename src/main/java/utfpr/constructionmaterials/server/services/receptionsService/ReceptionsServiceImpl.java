@@ -66,7 +66,7 @@ public class ReceptionsServiceImpl implements ReceptionsService {
         List<DonationFullDTO> donationsDTOs = new ArrayList<>();
         donations.forEach(donation -> donationsDTOs.add(ObjectMapperHelper.map(donation, DonationFullDTO.class)));
 
-        return new ReceptionReplyDTO(donationsDTOs);
+        return new ReceptionReplyDTO(donationsDTOs).toReceptionListReplyDTO();
     }
 
 }

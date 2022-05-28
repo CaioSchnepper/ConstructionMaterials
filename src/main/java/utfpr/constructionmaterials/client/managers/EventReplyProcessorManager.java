@@ -8,7 +8,7 @@ import utfpr.constructionmaterials.replyEvents.donations.DonationDeleteReplyDTO;
 import utfpr.constructionmaterials.replyEvents.donations.DonationUpdateReplyDTO;
 import utfpr.constructionmaterials.replyEvents.errors.*;
 import utfpr.constructionmaterials.replyEvents.receptions.ReceptionCreateReplyDTO;
-import utfpr.constructionmaterials.replyEvents.receptions.ReceptionReplyDTO;
+import utfpr.constructionmaterials.replyEvents.receptions.ReceptionListReplyDTO;
 import utfpr.constructionmaterials.replyEvents.transactions.ClientTransactionsReplyDTO;
 import utfpr.constructionmaterials.replyEvents.users.UserLoginReplyDTO;
 import utfpr.constructionmaterials.replyEvents.users.UserRegisterReplyDTO;
@@ -50,7 +50,7 @@ public class EventReplyProcessorManager {
             case RECEPTIONS:
                 return isErrorEvent
                         ? mapFromJson(message, ReceptionsErrorDTO.class)
-                        : mapFromJson(message, ReceptionReplyDTO.class);
+                        : mapFromJson(message, ReceptionListReplyDTO.class);
             case DONATION_UPDATE:
                 return isErrorEvent
                         ? mapFromJson(message, DonationUpdateErrorDTO.class)

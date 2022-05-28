@@ -15,9 +15,6 @@ import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.LOGIN;
 import static utfpr.constructionmaterials.shared.constants.SuccessMessages.CONFIGURATION_SUCCESS;
 
 public class ConfigurationController {
-
-    private static final int EXIT_CODE = 0;
-
     @FXML
     private TextField serverIp;
     @FXML
@@ -43,7 +40,7 @@ public class ConfigurationController {
 
     @FXML
     public void applicationExit(ActionEvent actionEvent) {
-        System.exit(EXIT_CODE);
+        System.exit(0);
     }
 
     private boolean configIsInvalid() {

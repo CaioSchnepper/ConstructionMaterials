@@ -38,6 +38,7 @@ public class MainApplication extends Application {
         primaryStage.show();
         primaryStage.setTitle(APPLICATION_TITLE);
         primaryStage.getIcons().add(icon);
+        primaryStage.setOnCloseRequest(event -> System.exit(0));
     }
 
 }

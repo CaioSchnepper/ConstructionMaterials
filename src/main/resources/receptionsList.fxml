@@ -35,50 +35,50 @@
 <?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
 <?import com.gluonhq.charm.glisten.mvc.View?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-      prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="utfpr.constructionmaterials.controllers.ReceptionsListController">
+
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ReceptionsListController">
     <center>
         <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
-                <TableView fx:id="receptionsTable" prefHeight="407.0" prefWidth="335.0">
+                <TableView fx:id="receptionsTable" prefHeight="425.0" prefWidth="335.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Codigo"/>
-                        <TableColumn prefWidth="75.0" text="Descricao"/>
-                        <TableColumn prefWidth="75.0" text="Quantidade"/>
-                        <TableColumn prefWidth="109.0" text="Unidade"/>
+                        <TableColumn fx:id="id" prefWidth="67.0" text="Codigo" />
+                        <TableColumn fx:id="description" prefWidth="96.0" text="Descricao" />
+                        <TableColumn fx:id="amount" prefWidth="82.0" text="Quantidade" />
+                        <TableColumn fx:id="unit" prefWidth="89.0" text="Unidade" />
                     </columns>
                 </TableView>
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="receptionsListPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;"
-              BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="329.0"
-                   text="Lista de possiveis recepcoes" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <Pane fx:id="receptionsListPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="329.0" text="Lista de possiveis recepcoes" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                 <font>
-                    <Font name="System Bold" size="20.0"/>
+                    <Font name="System Bold" size="20.0" />
                 </font>
                 <padding>
-                    <Insets left="30.0" right="30.0"/>
+                    <Insets left="30.0" right="30.0" />
                 </padding>
             </Label>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Pane>
     </top>
     <bottom>
         <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
-                <BottomNavigationButton onAction="#updateList" prefHeight="30.0" prefWidth="415.0"
-                                        text="Atualizar lista"/>
-                <BottomNavigationButton onAction="#menu" prefHeight="30.0" prefWidth="415.0" text="Menu principal"/>
+                <BottomNavigationButton onAction="#updateList" prefHeight="30.0" prefWidth="415.0" text="Atualizar lista" />
+                <BottomNavigationButton onAction="#menu" prefHeight="30.0" prefWidth="415.0" text="Menu principal" />
             </children>
         </VBox>
     </bottom>

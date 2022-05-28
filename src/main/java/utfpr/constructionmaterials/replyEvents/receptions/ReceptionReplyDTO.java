@@ -15,4 +15,8 @@ public class ReceptionReplyDTO implements EventDTO {
 
     private List<DonationFullDTO> donations;
 
+    public ReceptionListReplyDTO toReceptionListReplyDTO() {
+        return new ReceptionListReplyDTO(this);
+    }
+
 }

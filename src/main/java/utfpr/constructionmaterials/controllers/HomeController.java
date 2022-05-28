@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import utfpr.constructionmaterials.client.services.clientMessageService.ClientMessageHelper;
-import utfpr.constructionmaterials.entities.users.User;
 import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.events.connection.CloseConnectionDTO;
 import utfpr.constructionmaterials.replyEvents.errors.CloseConnectionErrorDTO;
@@ -23,8 +22,6 @@ public class HomeController {
 
     @FXML
     public void logoutUser(ActionEvent actionEvent) {
-        User currentUser = CurrentUser.getInstance().getUser(); // Exemplo de como buscar o usuário logado
-
         CloseConnectionDTO closeDTO = new CloseConnectionDTO();
         EventDTO result = ClientMessageHelper.send(closeDTO);
 
