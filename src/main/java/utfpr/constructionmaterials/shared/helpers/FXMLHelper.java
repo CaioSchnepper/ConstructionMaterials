@@ -18,7 +18,7 @@ public class FXMLHelper {
         oldLocation.getScene().setRoot(newPane);
     }
 
-    public static Parent load(String fileName){
+    public static Parent load(String fileName) {
         try {
             return FXMLLoader.load(Objects.requireNonNull(FXMLHelper.class.getResource("/" + fileName)));
         } catch (IOException ex) {

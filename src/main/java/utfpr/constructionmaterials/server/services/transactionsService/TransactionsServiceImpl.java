@@ -9,10 +9,8 @@ import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.events.donations.DonationFullDTO;
 import utfpr.constructionmaterials.events.receptions.ReceptionFullDTO;
 import utfpr.constructionmaterials.events.transactions.ClientTransactionListDTO;
-import utfpr.constructionmaterials.replyEvents.errors.DonationErrorDTO;
 import utfpr.constructionmaterials.replyEvents.errors.ErrorDTO;
 import utfpr.constructionmaterials.replyEvents.errors.TransactionsErrorDTO;
-import utfpr.constructionmaterials.replyEvents.transactions.ClientTransactionsReplyDTO;
 import utfpr.constructionmaterials.replyEvents.transactions.TransactionsReplyDTO;
 import utfpr.constructionmaterials.server.repositories.donations.DonationsRepository;
 import utfpr.constructionmaterials.server.repositories.receptions.ReceptionsRepository;
@@ -26,7 +24,7 @@ import java.util.Optional;
 import static utfpr.constructionmaterials.shared.constants.ErrorMessages.USER_NOT_FOUND;
 
 @Service
-public class TransactionsServiceImpl implements TransactionsService{
+public class TransactionsServiceImpl implements TransactionsService {
 
     @Autowired
     private UsersRepository usersRepository;

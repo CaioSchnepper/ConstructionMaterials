@@ -7,10 +7,10 @@ import utfpr.constructionmaterials.events.users.UserUpdateDTO;
 
 public interface UsersService {
 
-     EventDTO login(UserLoginDTO userLoginDTO);
+    EventDTO login(UserLoginDTO userLoginDTO);
 
-     EventDTO register(UserRegisterDTO userRegisterDTO);
+    EventDTO register(UserRegisterDTO userRegisterDTO);
 
-     EventDTO update(UserUpdateDTO userUpdateDTO);
+    EventDTO update(UserUpdateDTO userUpdateDTO);
 
 }

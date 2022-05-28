@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import org.springframework.boot.SpringApplication;
-import utfpr.constructionmaterials.MainApplication;
-import utfpr.constructionmaterials.MainApplicationWrapper;
 import utfpr.constructionmaterials.client.ClientApplication;
 import utfpr.constructionmaterials.shared.constants.ErrorMessages;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;

@@ -9,8 +9,6 @@ import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.events.donations.DonationFullDTO;
 import utfpr.constructionmaterials.events.receptions.ReceptionCreateDTO;
 import utfpr.constructionmaterials.events.receptions.ReceptionListDTO;
-import utfpr.constructionmaterials.replyEvents.donations.DonationCreateReplyDTO;
-import utfpr.constructionmaterials.replyEvents.errors.DonationErrorDTO;
 import utfpr.constructionmaterials.replyEvents.errors.ErrorDTO;
 import utfpr.constructionmaterials.replyEvents.errors.ReceiveErrorDTO;
 import utfpr.constructionmaterials.replyEvents.receptions.ReceptionCreateReplyDTO;

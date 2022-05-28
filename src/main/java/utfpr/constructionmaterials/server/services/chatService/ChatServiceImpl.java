@@ -1,5 +1,6 @@
 package utfpr.constructionmaterials.server.services.chatService;
 
+import org.springframework.stereotype.Service;
 import utfpr.constructionmaterials.events.EventDTO;
 import utfpr.constructionmaterials.events.chat.ChatDTO;
 import utfpr.constructionmaterials.events.chat.ChatRedirectionDTO;
@@ -8,6 +9,7 @@ import utfpr.constructionmaterials.replyEvents.chat.StartChatReplyDTO;
 import utfpr.constructionmaterials.replyEvents.errors.ChatErrorDTO;
 import utfpr.constructionmaterials.replyEvents.errors.ChatRedirectionErrorDTO;
 
+@Service
 public class ChatServiceImpl implements ChatService {
 
     @Override

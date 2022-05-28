@@ -2,7 +2,6 @@ package utfpr.constructionmaterials.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import utfpr.constructionmaterials.client.services.clientMessageService.ClientMessageHelper;
@@ -13,7 +12,7 @@ import utfpr.constructionmaterials.replyEvents.errors.CloseConnectionErrorDTO;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
 import utfpr.constructionmaterials.shared.singletons.CurrentUser;
 
-import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.LOGIN;
+import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.*;
 import static utfpr.constructionmaterials.shared.constants.SuccessMessages.LOGOUT_SUCCESS;
 
 public class HomeController {
@@ -38,4 +37,22 @@ public class HomeController {
         }
     }
 
+    @FXML
+    public void receive(ActionEvent actionEvent) {
+        FXMLHelper.navigateTo(RECEPTIONS_LIST, homePane);
+    }
+
+    @FXML
+    public void donationRegister(ActionEvent actionEvent) {
+        FXMLHelper.navigateTo(DONATION_REGISTER, homePane);
+    }
+
+    @FXML
+    public void updateUser(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void transactionsList(ActionEvent actionEvent) {
+        FXMLHelper.navigateTo(TRANSACTIONS_LIST, homePane);
+    }
 }

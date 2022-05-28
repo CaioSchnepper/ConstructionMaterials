@@ -19,7 +19,8 @@ import utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper;
 
 import java.util.Optional;
 
-import static utfpr.constructionmaterials.shared.constants.ErrorMessages.*;
+import static utfpr.constructionmaterials.shared.constants.ErrorMessages.DONATION_NOT_FOUND;
+import static utfpr.constructionmaterials.shared.constants.ErrorMessages.USER_NOT_FOUND;
 
 @Service
 public class DonationsServiceImpl implements DonationsService {
