@@ -34,49 +34,64 @@
 
 <?import com.gluonhq.charm.glisten.mvc.View?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-      prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="utfpr.constructionmaterials.controllers.HomeController">
+
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.HomeController">
     <center>
-        <VBox alignment="TOP_CENTER" prefHeight="383.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="383.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
-                <Label text="Bem vindo(a)">
+                <Label fx:id="welcomeLabel" text="Bem vindo(a)">
                     <VBox.margin>
-                        <Insets bottom="20.0" top="20.0"/>
+                        <Insets top="20.0" />
                     </VBox.margin>
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
                 </Label>
-                <Button layoutY="15.0" mnemonicParsing="false" onAction="#receive" prefHeight="46.0" prefWidth="455.0"
-                        text="Receber" textAlignment="CENTER"/>
-                <Button mnemonicParsing="false" onAction="#transactionsList" prefHeight="46.0" prefWidth="386.0"
-                        text="Listar transacoes"/>
-                <Button mnemonicParsing="false" onAction="#updateUser" prefHeight="46.0" prefWidth="347.0"
-                        text="Alterar Usuario"/>
-                <Button mnemonicParsing="false" onAction="#donationRegister" prefHeight="46.0" prefWidth="335.0"
-                        text="Cadastrar Doacao" wrapText="true"/>
+                <Button layoutY="15.0" mnemonicParsing="false" onAction="#receive" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Receber" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+                <Button mnemonicParsing="false" onAction="#transactionsList" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Listar transacoes">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+                <Button mnemonicParsing="false" onAction="#updateUser" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Alterar Usuario">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+                <Button mnemonicParsing="false" onAction="#donationRegister" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Cadastrar Doacao" wrapText="true">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#showServerView" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Visualização do Servidor">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="homePane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;"
-              BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="11.0" prefHeight="29.0"
-                   prefWidth="143.0" text="Home" textAlignment="CENTER" textFill="WHITE">
+        <Pane fx:id="homePane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="11.0" prefHeight="29.0" prefWidth="143.0" text="Home" textAlignment="CENTER" textFill="WHITE">
                 <font>
-                    <Font name="System Bold" size="36.0"/>
+                    <Font name="System Bold" size="36.0" />
                 </font>
             </Label>
-            <Button fx:id="logout" layoutX="267.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutUser"
-                    text="Sair"/>
+            <Button fx:id="logout" layoutX="267.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutUser" style="-fx-background-color: #0479d6;" text="Sair" />
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER"/>
+        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER" />
     </bottom>
 </View>

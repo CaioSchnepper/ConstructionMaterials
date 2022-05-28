@@ -32,62 +32,86 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import com.gluonhq.charm.glisten.control.*?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
 <?import com.gluonhq.charm.glisten.mvc.View?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-      prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="utfpr.constructionmaterials.controllers.ServerViewController">
+
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ServerViewController">
     <center>
         <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
-                <Label text="IP"/>
-                <TextField fx:id="serverIp">
-                    <VBox.margin>
-                        <Insets bottom="20.0" left="30.0" right="30.0"/>
-                    </VBox.margin>
-                </TextField>
-                <Label text="Porta"/>
-                <TextField fx:id="serverPort">
-                    <VBox.margin>
-                        <Insets bottom="20.0" left="30.0" right="30.0"/>
-                    </VBox.margin>
-                </TextField>
-                <BottomNavigationButton onAction="#start" prefHeight="30.0" prefWidth="415.0" text="Iniciar"/>
-                <BottomNavigationButton onAction="#stop" prefHeight="30.0" prefWidth="415.0" text="Parar"/>
-                <TableView fx:id="usersTable" prefHeight="154.0" prefWidth="335.0">
+                <Label text="IP">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font></Label>
+            <TextField fx:id="serverIp" prefHeight="30.0" />
+                <Label text="Porta">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="serverPort" prefHeight="30.0" prefWidth="335.0" />
+                <TableView fx:id="usersTable" prefHeight="298.0" prefWidth="335.0">
                     <columns>
-                        <TableColumn fx:id="userName" prefWidth="111.0" text="Nome usuario"/>
-                        <TableColumn fx:id="userIp" prefWidth="155.0" text="IP"/>
-                        <TableColumn fx:id="userPort" prefWidth="68.0" text="Porta"/>
+                        <TableColumn fx:id="userName" prefWidth="111.0" text="Nome usuario" />
+                        <TableColumn fx:id="userIp" prefWidth="155.0" text="IP" />
+                        <TableColumn fx:id="userPort" prefWidth="68.0" text="Porta" />
                     </columns>
                 </TableView>
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="serverViewPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;"
-              BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="236.0"
-                   text="Servidor status: " textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <Pane fx:id="serverViewPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="1.0" prefHeight="75.0" prefWidth="203.0" text="Status do Servidor:" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                 <font>
-                    <Font name="System Bold" size="20.0"/>
+                    <Font name="Roboto Bold" size="20.0" />
                 </font>
-                <padding>
-                    <Insets left="30.0" right="30.0"/>
-                </padding>
             </Label>
-            <TextField fx:id="serverStatus" layoutX="217.0" layoutY="25.0" prefHeight="26.0" prefWidth="116.0"/>
+         <Label fx:id="serverStatus" layoutX="195.0" layoutY="18.0" prefHeight="42.0" prefWidth="133.0" text="UNKNOWN">
+            <font>
+               <Font name="System Bold" size="24.0" />
+            </font>
+         </Label>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER"/>
+        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="335.0">
+               <children>
+                      <BottomNavigationButton onAction="#start" prefHeight="36.0" prefWidth="120.0" style="-fx-background-color: #2196f3;" text="Iniciar">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </BottomNavigationButton>
+                      <BottomNavigationButton onAction="#stop" prefHeight="36.0" prefWidth="120.0" style="-fx-background-color: #2196f3;" text="Parar" />
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Voltar">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children></VBox>
     </bottom>
 </View>

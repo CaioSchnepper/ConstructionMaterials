@@ -46,24 +46,36 @@
 
 <View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.TransactionsListController">
     <center>
-        <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
-                <Label text="Doacoes" />
-                <TableView fx:id="donationsTable" prefHeight="200.0" prefWidth="200.0">
+                <Label text="Doacoes">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+                <TableView fx:id="donationsTable" prefHeight="185.0" prefWidth="200.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Codigo" />
-                        <TableColumn prefWidth="75.0" text="Descricao" />
-                        <TableColumn prefWidth="75.0" text="Quantidade" />
-                        <TableColumn prefWidth="109.0" text="Unidade" />
+                        <TableColumn fx:id="idDonation" prefWidth="72.0" text="Codigo" />
+                        <TableColumn fx:id="descriptionDonation" prefWidth="94.0" text="Descricao" />
+                        <TableColumn fx:id="amountDonation" prefWidth="83.0" text="Quantidade" />
+                        <TableColumn fx:id="unitDonation" prefWidth="85.0" text="Unidade" />
                     </columns>
                 </TableView>
-                <Label text="Recepcoes" />
+                <Label text="Recepcoes">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font></Label>
                 <TableView fx:id="receptionsTable" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Codigo" />
-                        <TableColumn prefWidth="75.0" text="Descricao" />
-                        <TableColumn prefWidth="75.0" text="Quantidade" />
-                        <TableColumn prefWidth="109.0" text="Unidade" />
+                        <TableColumn fx:id="idReception" prefWidth="72.0" text="Codigo" />
+                        <TableColumn fx:id="amountReception" prefWidth="83.0" text="Quantidade" />
+                        <TableColumn fx:id="idDonationReception" prefWidth="94.0" text="ID Doação" />
+                        <TableColumn fx:id="idReceiverReception" prefWidth="85.0" text="ID Receptor" />
                     </columns>
                 </TableView>
             </children>
@@ -85,9 +97,9 @@
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
-                <BottomNavigationButton onAction="#menu" prefHeight="30.0" prefWidth="415.0" text="Menu principal" />
+                <BottomNavigationButton onAction="#menu" prefHeight="36.0" prefWidth="250.0" text="Menu principal" />
             </children>
         </VBox>
     </bottom>

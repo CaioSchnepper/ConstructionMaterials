@@ -24,4 +24,8 @@ public class UserFullDTO {
         return new UserLoginReplyDTO(this);
     }
 
+    public UserUpdateDTO toUserUpdateDTO() {
+        return new UserUpdateDTO(this);
+    }
+
 }

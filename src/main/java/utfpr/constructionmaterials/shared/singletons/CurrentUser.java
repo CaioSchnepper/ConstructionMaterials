@@ -19,7 +19,6 @@ public class CurrentUser {
     }
 
     public static synchronized CurrentUser getInstance() {
-        if (INSTANCE == null) throw new RuntimeException(NO_INSTANCE_ERROR);
         return INSTANCE;
     }
 

@@ -11,4 +11,8 @@ public class ClientTransactionDTO {
 
     private String idClient;
 
+    public ClientTransactionListDTO toClientTransactionListDTO() {
+        return new ClientTransactionListDTO(this);
+    }
+
 }

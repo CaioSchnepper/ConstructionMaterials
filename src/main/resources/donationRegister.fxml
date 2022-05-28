@@ -47,7 +47,7 @@
 
 <View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.DonationRegisterController">
     <center>
-        <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
             <children>
                 <Label text="Descricao">
                     <VBox.margin>
@@ -74,7 +74,7 @@
         <Pane fx:id="donationRegisterPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="329.0" text="Cadastro de doacao" textAlignment="CENTER" textFill="WHITE">
                 <font>
-                    <Font name="System Bold" size="20.0" />
+                    <Font name="Roboto Bold" size="24.0" />
                 </font>
                 <padding>
                     <Insets left="30.0" right="30.0" top="25.0" />
@@ -86,14 +86,17 @@
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
-                <Button mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="506.0" text="Voltar">
+                <Button mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="250.0" text="Voltar">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
                 </Button>
-                <BottomNavigationButton onAction="#send" prefHeight="30.0" prefWidth="415.0" text="Enviar" />
+                <BottomNavigationButton onAction="#send" prefHeight="36.0" prefWidth="250.0" text="Enviar">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></BottomNavigationButton>
          </children></VBox>
     </bottom>
 </View>
