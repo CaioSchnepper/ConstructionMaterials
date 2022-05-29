@@ -3,14 +3,10 @@ package utfpr.constructionmaterials;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import utfpr.constructionmaterials.server.ServerApplication;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
-
-import java.util.Objects;
+import utfpr.constructionmaterials.shared.singletons.CurrentIcon;
 
 import static utfpr.constructionmaterials.shared.constants.ClientConfigs.APPLICATION_TITLE;
 import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.CONFIGURATION;
@@ -32,11 +28,11 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         Parent login = FXMLHelper.load(CONFIGURATION);
-        Image icon = new Image(Objects.requireNonNull(MainApplication.class.getClassLoader().getResourceAsStream("icon.png")));
+        CurrentIcon.createInstance();
         primaryStage.setScene(new Scene(login));
         primaryStage.show();
         primaryStage.setTitle(APPLICATION_TITLE);
-        primaryStage.getIcons().add(icon);
+        primaryStage.getIcons().add(CurrentIcon.getInstance().getIcon());
         primaryStage.setOnCloseRequest(event -> System.exit(0));
     }
 

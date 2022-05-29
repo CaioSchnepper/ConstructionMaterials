@@ -5,9 +5,7 @@ import utfpr.constructionmaterials.entities.users.User;
 import static utfpr.constructionmaterials.shared.constants.ErrorMessages.NO_INSTANCE_ERROR;
 
 public class CurrentUser {
-
     private static CurrentUser INSTANCE;
-
     private final User user;
 
     private CurrentUser(User user) {

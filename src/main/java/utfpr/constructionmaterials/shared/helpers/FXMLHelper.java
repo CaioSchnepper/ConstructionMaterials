@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import utfpr.constructionmaterials.shared.singletons.CurrentIcon;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -28,12 +30,16 @@ public class FXMLHelper {
 
     public static void showErrorAlert(String errorMessage) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(CurrentIcon.getInstance().getIcon());
         alert.setHeaderText(errorMessage);
         alert.showAndWait();
     }
 
     public static void showSuccessAlert(String successMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(CurrentIcon.getInstance().getIcon());
         alert.setHeaderText(successMessage);
         alert.showAndWait();
     }
