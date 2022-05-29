@@ -52,7 +52,7 @@ public class DonationRegisterController implements Initializable {
     @FXML
     public void send(ActionEvent actionEvent) {
         if (!fieldsAreValid()) {
-            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS, donationRegisterPane);
+            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS);
             return;
         }
 
@@ -68,9 +68,9 @@ public class DonationRegisterController implements Initializable {
         EventDTO result = ClientMessageHelper.send(donationCreateDTO);
 
         if (result instanceof DonationErrorDTO) {
-            FXMLHelper.showErrorAlert(((DonationErrorDTO) result).getDonation().getError(), donationRegisterPane);
+            FXMLHelper.showErrorAlert(((DonationErrorDTO) result).getDonation().getError());
         } else {
-            FXMLHelper.showSuccessAlert(DONATION_SUCCESS, donationRegisterPane);
+            FXMLHelper.showSuccessAlert(DONATION_SUCCESS);
             FXMLHelper.navigateTo(HOME, donationRegisterPane);
         }
 

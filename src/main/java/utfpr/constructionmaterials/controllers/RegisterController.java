@@ -81,7 +81,7 @@ public class RegisterController implements Initializable {
     @FXML
     public void register() {
         if (userIsInvalid()) {
-            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS, registerPane);
+            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS);
             return;
         }
 
@@ -109,9 +109,9 @@ public class RegisterController implements Initializable {
         EventDTO result = ClientMessageHelper.send(registerDTO);
 
         if (result instanceof RegisterErrorDTO) {
-            FXMLHelper.showErrorAlert(((RegisterErrorDTO) result).getRegister().getError(), registerPane);
+            FXMLHelper.showErrorAlert(((RegisterErrorDTO) result).getRegister().getError());
         } else {
-            FXMLHelper.showSuccessAlert(REGISTER_SUCCESS, registerPane);
+            FXMLHelper.showSuccessAlert(REGISTER_SUCCESS);
             FXMLHelper.navigateTo(LOGIN, registerPane);
         }
     }
@@ -124,12 +124,12 @@ public class RegisterController implements Initializable {
         EventDTO result = ClientMessageHelper.send(updateDTO);
 
         if (result instanceof UserUpdateErrorDTO) {
-            FXMLHelper.showErrorAlert(((UserUpdateErrorDTO) result).getUserUpdate().getError(), registerPane);
+            FXMLHelper.showErrorAlert(((UserUpdateErrorDTO) result).getUserUpdate().getError());
         } else {
             User user = ObjectMapperHelper.map(updateDTO.getUserUpdate(), User.class);
             CurrentUser.destroyInstance();
             CurrentUser.setInstance(user);
-            FXMLHelper.showSuccessAlert(USER_UPDATE_SUCCESS, registerPane);
+            FXMLHelper.showSuccessAlert(USER_UPDATE_SUCCESS);
             FXMLHelper.navigateTo(HOME, registerPane);
         }
     }

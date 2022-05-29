@@ -42,7 +42,7 @@ public class LoginController {
     @FXML
     public void login() {
         if (userIsInvalid()) {
-            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS, loginPane);
+            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS);
             return;
         }
 
@@ -51,11 +51,11 @@ public class LoginController {
         EventDTO result = ClientMessageHelper.send(loginDTO);
 
         if (result instanceof LoginErrorDTO) {
-            FXMLHelper.showErrorAlert(((LoginErrorDTO) result).getLogin().getError(), loginPane);
+            FXMLHelper.showErrorAlert(((LoginErrorDTO) result).getLogin().getError());
         } else {
             User user = ObjectMapperHelper.map(((UserLoginReplyDTO) result).getLogin(), User.class);
             CurrentUser.setInstance(user);
-            FXMLHelper.showSuccessAlert(LOGIN_SUCCESS, loginPane);
+            FXMLHelper.showSuccessAlert(LOGIN_SUCCESS);
             FXMLHelper.navigateTo(HOME, loginPane);
         }
     }

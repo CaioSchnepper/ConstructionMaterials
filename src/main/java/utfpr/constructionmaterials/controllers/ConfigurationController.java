@@ -35,7 +35,7 @@ public class ConfigurationController implements Initializable {
     public void enterServer(ActionEvent actionEvent) {
 
         if (configIsInvalid()) {
-            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS, configurationPane);
+            FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS);
             return;
         }
 
@@ -45,13 +45,13 @@ public class ConfigurationController implements Initializable {
 
         clientApplicationService.setOnSucceeded(workerStateEvent -> {
             loadingSpinner.setVisible(false);
-            FXMLHelper.showSuccessAlert(CONFIGURATION_SUCCESS, configurationPane);
+            FXMLHelper.showSuccessAlert(CONFIGURATION_SUCCESS);
             FXMLHelper.navigateTo(LOGIN, configurationPane);
         });
 
         clientApplicationService.setOnFailed(workerStateEvent -> {
             loadingSpinner.setVisible(false);
-            FXMLHelper.showErrorAlert(ErrorMessages.APP_START_ERROR, configurationPane);
+            FXMLHelper.showErrorAlert(ErrorMessages.APP_START_ERROR);
         });
 
         clientApplicationService.restart();

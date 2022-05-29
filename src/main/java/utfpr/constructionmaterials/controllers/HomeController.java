@@ -39,10 +39,10 @@ public class HomeController implements Initializable {
         EventDTO result = ClientMessageHelper.send(closeDTO);
 
         if (result instanceof CloseConnectionErrorDTO) {
-            FXMLHelper.showErrorAlert(((CloseConnectionErrorDTO) result).getClose().getError(), homePane);
+            FXMLHelper.showErrorAlert(((CloseConnectionErrorDTO) result).getClose().getError());
         } else {
             CurrentUser.destroyInstance();
-            FXMLHelper.showSuccessAlert(LOGOUT_SUCCESS, homePane);
+            FXMLHelper.showSuccessAlert(LOGOUT_SUCCESS);
             FXMLHelper.navigateTo(LOGIN, homePane);
         }
     }

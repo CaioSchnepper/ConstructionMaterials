@@ -55,7 +55,7 @@ public class ReceptionsListController implements Initializable {
         EventDTO result = ClientMessageHelper.send(new ReceptionListDTO());
 
         if (result instanceof ReceptionsErrorDTO) {
-            FXMLHelper.showErrorAlert(((ReceptionsErrorDTO) result).getReceptions().getError(), receptionsListPane);
+            FXMLHelper.showErrorAlert(((ReceptionsErrorDTO) result).getReceptions().getError());
         } else if (result instanceof ReceptionListReplyDTO) {
             List<Donation> donations = ((ReceptionListReplyDTO) result)
                     .getReceptions()

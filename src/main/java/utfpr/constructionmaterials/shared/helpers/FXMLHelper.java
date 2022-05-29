@@ -26,17 +26,15 @@ public class FXMLHelper {
         }
     }
 
-    public static void showErrorAlert(String errorMessage, Pane pane) {
+    public static void showErrorAlert(String errorMessage) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(errorMessage);
-        alert.setWidth(pane.getWidth());
         alert.showAndWait();
     }
 
-    public static void showSuccessAlert(String successMessage, Pane pane) {
+    public static void showSuccessAlert(String successMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(successMessage);
-        alert.setWidth(pane.getWidth());
         alert.showAndWait();
     }
 

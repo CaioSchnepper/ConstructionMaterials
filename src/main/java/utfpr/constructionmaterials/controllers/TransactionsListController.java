@@ -69,7 +69,7 @@ public class TransactionsListController implements Initializable {
                         .toClientTransactionListDTO());
 
         if (result instanceof TransactionsErrorDTO) {
-            FXMLHelper.showErrorAlert(((TransactionsErrorDTO) result).getClientTransactions().getError(), transactionsListPane);
+            FXMLHelper.showErrorAlert(((TransactionsErrorDTO) result).getClientTransactions().getError());
         } else if (result instanceof ClientTransactionsReplyDTO) {
             List<Donation> donations = ((ClientTransactionsReplyDTO) result)
                     .getClientTransactions()
