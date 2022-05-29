@@ -20,7 +20,7 @@ public class MainApplication extends Application {
 
     public static void main(String[] args) {
         // Start the server
-        SpringApplication.run(ServerApplication.class, args);
+        //SpringApplication.run(ServerApplication.class, args);
 
         // Start the client
         //SpringApplication.run(ClientApplication.class, args);

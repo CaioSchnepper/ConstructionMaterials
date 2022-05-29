@@ -6,13 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import org.springframework.boot.SpringApplication;
-import utfpr.constructionmaterials.client.ClientApplication;
+import utfpr.constructionmaterials.client.services.clientApplicationService.ClientApplicationService;
 import utfpr.constructionmaterials.shared.constants.ErrorMessages;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
 
 import java.net.URL;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
 import static utfpr.constructionmaterials.shared.constants.FXMLFileNames.LOGIN;
@@ -32,24 +30,31 @@ public class ConfigurationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadingSpinner.setVisible(false);
     }
+
     @FXML
     public void enterServer(ActionEvent actionEvent) {
 
-        loadingSpinner.setVisible(true);
-
         if (configIsInvalid()) {
             FXMLHelper.showErrorAlert(ErrorMessages.MISSING_FIELDS, configurationPane);
-            loadingSpinner.setVisible(false);
             return;
         }
 
-        SpringApplication clientApplication = new SpringApplication(ClientApplication.class);
-        clientApplication.setDefaultProperties(getServerProperties());
-        clientApplication.run();
+        loadingSpinner.setVisible(true);
 
-        loadingSpinner.setVisible(false);
-        FXMLHelper.showSuccessAlert(CONFIGURATION_SUCCESS, configurationPane);
-        FXMLHelper.navigateTo(LOGIN, configurationPane);
+        final ClientApplicationService clientApplicationService = new ClientApplicationService(serverIp.getText(), serverPort.getText());
+
+        clientApplicationService.setOnSucceeded(workerStateEvent -> {
+            loadingSpinner.setVisible(false);
+            FXMLHelper.showSuccessAlert(CONFIGURATION_SUCCESS, configurationPane);
+            FXMLHelper.navigateTo(LOGIN, configurationPane);
+        });
+
+        clientApplicationService.setOnFailed(workerStateEvent -> {
+            loadingSpinner.setVisible(false);
+            FXMLHelper.showErrorAlert(ErrorMessages.APP_START_ERROR, configurationPane);
+        });
+
+        clientApplicationService.restart();
     }
 
     @FXML
@@ -59,13 +64,6 @@ public class ConfigurationController implements Initializable {
 
     private boolean configIsInvalid() {
         return serverIp.getText().isEmpty() || serverPort.getText().isEmpty();
-    }
-
-    private Properties getServerProperties() {
-        Properties properties = new Properties();
-        properties.put("tcp.target-server.host", serverIp.getText());
-        properties.put("tcp.target-server.port", serverPort.getText());
-        return properties;
     }
 
 }

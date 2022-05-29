@@ -11,4 +11,5 @@ public class ErrorMessages {
     public static final String MISSING_FIELDS = "Todos os campos sao obrigatorios";
     public static final String NO_INSTANCE_ERROR = "Nao ha uma instancia disponivel";
     public static final String DONATION_NOT_FOUND = "Doacao nao encontrada";
+    public static final String APP_START_ERROR = "Erro ao iniciar a aplicacao do cliente";
 }
