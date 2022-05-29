@@ -15,7 +15,8 @@ public class ObjectMapperHelper {
 
     private static final ObjectMapper objectMapper = new ObjectMapper()
             .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
-            .configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
+            .configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false)
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     public static <T extends EventDTO> T mapFromJson(byte[] message, Class<T> type) {
         try {
