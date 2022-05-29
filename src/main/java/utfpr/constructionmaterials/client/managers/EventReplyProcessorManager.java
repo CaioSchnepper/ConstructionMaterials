@@ -23,7 +23,7 @@ import static utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper.mapF
 public class EventReplyProcessorManager {
 
     public static EventDTO processEventReply(String eventName, byte[] message) {
-        var isErrorEvent = ObjectMapperHelper.isErrorMessage(message);
+        boolean isErrorEvent = ObjectMapperHelper.isErrorMessage(message);
 
         switch (eventName) {
             case LOGIN:

@@ -39,7 +39,7 @@ public class TransactionsServiceImpl implements TransactionsService {
     public EventDTO list(ClientTransactionListDTO clientTransactionListDTO) {
 
         Optional<User> user = usersRepository.findById(clientTransactionListDTO.getClientTransactions().getIdClient());
-        if (user.isEmpty()) {
+        if (user.isPresent()) {
             ErrorDTO error = new ErrorDTO(USER_NOT_FOUND);
             return new TransactionsErrorDTO(error);
         }

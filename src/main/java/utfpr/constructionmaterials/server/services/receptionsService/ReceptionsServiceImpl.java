@@ -43,13 +43,13 @@ public class ReceptionsServiceImpl implements ReceptionsService {
         Reception reception = ObjectMapperHelper.map(receptionCreateDTO.getReceive(), Reception.class);
 
         Optional<User> receiver = usersRepository.findById(reception.getIdReceiver());
-        if (receiver.isEmpty()) {
+        if (!receiver.isPresent()) {
             ErrorDTO error = new ErrorDTO(USER_NOT_FOUND);
             return new ReceiveErrorDTO(error);
         }
 
         Optional<Donation> donation = donationsRepository.findById(reception.getIdDonation());
-        if (donation.isEmpty()) {
+        if (!donation.isPresent()) {
             ErrorDTO error = new ErrorDTO(DONATION_NOT_FOUND);
             return new ReceiveErrorDTO(error);
         }

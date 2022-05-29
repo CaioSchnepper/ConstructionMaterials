@@ -35,7 +35,7 @@ public class DonationsServiceImpl implements DonationsService {
         Donation donation = ObjectMapperHelper.map(donationCreateDTO.getDonation(), Donation.class);
 
         Optional<User> user = usersRepository.findById(donation.getIdDonor());
-        if (user.isEmpty()) {
+        if (!user.isPresent()) {
             ErrorDTO error = new ErrorDTO(USER_NOT_FOUND);
             return new DonationErrorDTO(error);
         }
@@ -49,13 +49,13 @@ public class DonationsServiceImpl implements DonationsService {
     public EventDTO update(DonationUpdateDTO donationUpdateDTO) {
 
         Optional<User> user = usersRepository.findById(donationUpdateDTO.getDonationUpdate().getIdDonor());
-        if (user.isEmpty()) {
+        if (!user.isPresent()) {
             ErrorDTO error = new ErrorDTO(USER_NOT_FOUND);
             return new DonationErrorDTO(error);
         }
 
         Optional<Donation> donation = donationsRepository.findById(donationUpdateDTO.getDonationUpdate().getId());
-        if (donation.isEmpty()) {
+        if (!donation.isPresent()) {
             ErrorDTO error = new ErrorDTO(DONATION_NOT_FOUND);
             return new DonationErrorDTO(error);
         }
