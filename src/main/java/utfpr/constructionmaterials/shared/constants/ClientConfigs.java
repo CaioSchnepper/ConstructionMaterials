@@ -7,4 +7,6 @@ public class ClientConfigs {
     public static final String WELCOME_TEXT = "Bem vindo(a)";
     public static final String SERVER_STATUS_ON = "ON";
     public static final String SERVER_STATUS_OFF = "OFF";
+    public static final String ERROR = "Erro";
+    public static final String EMPTY = "";
 }
