@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import utfpr.constructionmaterials.server.ServerApplication;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
 import utfpr.constructionmaterials.shared.singletons.CurrentIcon;
 
@@ -16,7 +18,7 @@ public class MainApplication extends Application {
 
     public static void main(String[] args) {
         // Start the server
-        //SpringApplication.run(ServerApplication.class, args);
+        SpringApplication.run(ServerApplication.class, args);
 
         // Start the client
         //SpringApplication.run(ClientApplication.class, args);
