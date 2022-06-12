@@ -45,36 +45,50 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.DonationRegisterController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="865.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.DonationRegisterController">
     <center>
-        <VBox alignment="CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="526.0" prefWidth="335.0" style="-fx-background-color: #314c53;" BorderPane.alignment="CENTER">
             <children>
-                <Label text="Descricao">
-                    <VBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
-                    </VBox.margin>
-                </Label>
-                <TextField fx:id="description" alignment="CENTER" prefHeight="26.0" prefWidth="131.0" promptText="Informe a descricao">
-                    <VBox.margin>
-                        <Insets bottom="30.0" left="30.0" right="30.0" />
-                    </VBox.margin>
-                </TextField>
-                <Label text="Quantidade" />
-                <TextField fx:id="amount" alignment="CENTER" prefHeight="26.0" prefWidth="131.0" promptText="Informe a quantidade">
-                    <VBox.margin>
-                        <Insets bottom="30.0" left="30.0" right="30.0" />
-                    </VBox.margin>
-                </TextField>
-                <Label text="Unidade" />
-            <ComboBox fx:id="units" prefWidth="150.0" />
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="570.0" style="-fx-background-color: #f7f8fc;">
+               <children>
+                      <Button layoutX="135.0" layoutY="422.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Voltar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                      </Button>
+                      <BottomNavigationButton layoutX="135.0" layoutY="477.0" onAction="#send" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Enviar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </BottomNavigationButton>
+                  <ComboBox fx:id="units" layoutX="135.0" layoutY="305.0" prefHeight="36.0" prefWidth="330.0" promptText="Selecione a quantidade" />
+                      <Label layoutX="252.0" layoutY="262.0" text="Unidade">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                      <TextField fx:id="amount" alignment="CENTER" layoutX="135.0" layoutY="196.0" prefHeight="36.0" prefWidth="330.0" promptText="Informe a quantidade" />
+                      <Label layoutX="238.0" layoutY="146.0" text="Quantidade">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                      <TextField fx:id="description" alignment="CENTER" layoutX="135.0" layoutY="90.0" prefHeight="36.0" prefWidth="330.0" promptText="Informe a descricao" />
+                      <Label layoutX="246.0" layoutY="43.0" text="Descricao">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                      </Label>
+               </children>
+            </Pane>
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="donationRegisterPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
+        <Pane fx:id="donationRegisterPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="329.0" text="Cadastro de doacao" textAlignment="CENTER" textFill="WHITE">
                 <font>
-                    <Font name="Roboto Bold" size="24.0" />
+                    <Font name="Roboto Bold" size="28.0" />
                 </font>
                 <padding>
                     <Insets left="30.0" right="30.0" top="25.0" />
@@ -86,17 +100,13 @@
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
          <children>
-                <Button mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="250.0" text="Voltar">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </Button>
-                <BottomNavigationButton onAction="#send" prefHeight="36.0" prefWidth="250.0" text="Enviar">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></BottomNavigationButton>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="copyright © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children></VBox>
     </bottom>
 </View>

@@ -44,48 +44,60 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.TransactionsListController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="865.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.TransactionsListController">
     <center>
-        <VBox alignment="CENTER" prefHeight="526.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="526.0" prefWidth="335.0" style="-fx-background-color: #314c53;" BorderPane.alignment="CENTER">
             <children>
-                <Label text="Doacoes">
-               <font>
-                  <Font name="Roboto" size="14.0" />
-               </font>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="309.0" prefWidth="900.0" style="-fx-background-color: #f7f8fc;">
+               <children>
+                      <TableView fx:id="receptionsTable" layoutX="14.0" layoutY="51.0" prefHeight="200.0" prefWidth="848.0">
+                          <columns>
+                              <TableColumn fx:id="idReception" prefWidth="130.0" text="Codigo" />
+                              <TableColumn fx:id="amountReception" prefWidth="367.0" text="Quantidade" />
+                              <TableColumn fx:id="idDonationReception" prefWidth="197.0" text="ID Doação" />
+                              <TableColumn fx:id="idReceiverReception" prefWidth="156.0" text="ID Receptor" />
+                          </columns>
+                      </TableView>
+                      <Label layoutX="404.0" layoutY="20.0" text="Recepcoes">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
                <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Label>
-                <TableView fx:id="donationsTable" prefHeight="185.0" prefWidth="200.0">
-                    <columns>
-                        <TableColumn fx:id="idDonation" prefWidth="72.0" text="Codigo" />
-                        <TableColumn fx:id="descriptionDonation" prefWidth="94.0" text="Descricao" />
-                        <TableColumn fx:id="amountDonation" prefWidth="83.0" text="Quantidade" />
-                        <TableColumn fx:id="unitDonation" prefWidth="85.0" text="Unidade" />
-                    </columns>
-                </TableView>
-                <Label text="Recepcoes">
-               <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="18.0" />
                </VBox.margin>
-               <font>
-                  <Font name="Roboto" size="14.0" />
-               </font></Label>
-                <TableView fx:id="receptionsTable" prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                        <TableColumn fx:id="idReception" prefWidth="72.0" text="Codigo" />
-                        <TableColumn fx:id="amountReception" prefWidth="83.0" text="Quantidade" />
-                        <TableColumn fx:id="idDonationReception" prefWidth="94.0" text="ID Doação" />
-                        <TableColumn fx:id="idReceiverReception" prefWidth="85.0" text="ID Receptor" />
-                    </columns>
-                </TableView>
+            </Pane>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="900.0" style="-fx-background-color: #f7f8fc;">
+               <children>
+                      <TableView fx:id="donationsTable" layoutX="1.0" layoutY="46.0" prefHeight="208.0" prefWidth="899.0">
+                          <columns>
+                              <TableColumn fx:id="idDonation" prefWidth="130.0" text="Codigo" />
+                              <TableColumn fx:id="descriptionDonation" prefWidth="508.0" text="Descricao" />
+                              <TableColumn fx:id="amountDonation" prefWidth="150.0" text="Quantidade" />
+                              <TableColumn fx:id="unitDonation" prefWidth="150.0" text="Unidade" />
+                          </columns>
+                      </TableView>
+                      <Label layoutX="422.0" layoutY="12.0" text="Doacoes">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+                      <BottomNavigationButton layoutX="324.0" layoutY="270.0" onAction="#menu" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #5a7f78;" text="Menu principal" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </BottomNavigationButton>
+               </children>
+            </Pane>
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="transactionsListPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="329.0" text="Lista de transacoes do cliente" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <Pane fx:id="transactionsListPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="446.0" text="Lista de transacoes do cliente" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                 <font>
-                    <Font name="System Bold" size="20.0" />
+                    <Font name="System Bold" size="28.0" />
                 </font>
                 <padding>
                     <Insets left="30.0" right="30.0" />
@@ -97,10 +109,14 @@
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
-            <children>
-                <BottomNavigationButton onAction="#menu" prefHeight="36.0" prefWidth="250.0" text="Menu principal" />
-            </children>
+        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="copyright © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
         </VBox>
     </bottom>
 </View>

@@ -33,7 +33,6 @@
 -->
 
 <?import com.gluonhq.charm.glisten.mvc.View?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
@@ -44,48 +43,43 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ConfigurationController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="865.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utfpr.constructionmaterials.controllers.ConfigurationController">
     <center>
-        <VBox alignment="CENTER" prefHeight="383.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="383.0" prefWidth="335.0" style="-fx-background-color: #314c53;" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" prefHeight="36.0" prefWidth="335.0" text="Endereco IP do servidor">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-               <font>
-                  <Font name="Roboto" size="14.0" />
-               </font>
-                </Label>
-                <TextField fx:id="serverIp" alignment="CENTER" prefHeight="36.0" prefWidth="335.0" promptText="Informe o endereco IP do servidor">
-                    <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                    </VBox.margin>
-                </TextField>
-                <Label alignment="CENTER" prefHeight="36.0" prefWidth="335.0" text="Porta" textAlignment="CENTER">
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Roboto" size="14.0" />
-               </font></Label>
-                <TextField fx:id="serverPort" alignment="CENTER" prefHeight="36.0" prefWidth="335.0" promptText="Informe a porta">
-                    <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                    </VBox.margin>
-                </TextField>
-            <ProgressIndicator fx:id="loadingSpinner" style="-fx-progress-color: #2196f3;">
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-            </ProgressIndicator>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="570.0" style="-fx-background-color: #f7f8fc;">
+               <children>
+                  <Button layoutX="123.0" layoutY="424.0" mnemonicParsing="false" onAction="#enterServer" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Entrar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
+                      <Button layoutX="123.0" layoutY="486.0" mnemonicParsing="false" onAction="#applicationExit" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Cancelar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
+                      <TextField fx:id="serverPort" alignment="CENTER" layoutX="114.0" layoutY="233.0" prefHeight="36.0" prefWidth="335.0" promptText="Informe a porta" />
+                      <Label alignment="CENTER" layoutX="114.0" layoutY="183.0" prefHeight="36.0" prefWidth="335.0" text="Porta" textAlignment="CENTER">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+                  <ProgressIndicator fx:id="loadingSpinner" layoutX="256.0" layoutY="304.0" style="-fx-progress-color: #2196f3;" />
+                      <TextField fx:id="serverIp" alignment="CENTER" layoutX="118.0" layoutY="112.0" prefHeight="36.0" prefWidth="335.0" promptText="Informe o endereco IP do servidor" />
+                      <Label alignment="CENTER" layoutX="118.0" layoutY="53.0" prefHeight="36.0" prefWidth="335.0" text="Endereco IP do servidor">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                      </Label>
+               </children>
+            </Pane>
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="configurationPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #2196f3;" BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="16.0" prefHeight="44.0" prefWidth="273.0" text="Configuracoes" textAlignment="CENTER" textFill="WHITE">
+        <Pane fx:id="configurationPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="16.0" prefHeight="44.0" prefWidth="239.0" text="Configuracoes" textAlignment="CENTER" textFill="WHITE">
                 <font>
-                    <Font name="Roboto Bold" size="36.0" />
+                    <Font name="Roboto Bold" size="28.0" />
                 </font>
             </Label>
             <effect>
@@ -94,13 +88,13 @@
         </Pane>
     </top>
     <bottom>
-        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#enterServer" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Entrar" />
-                <Button mnemonicParsing="false" onAction="#applicationExit" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #2196f3;" text="Cancelar">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="copyright © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children></VBox>
     </bottom>
 </View>
