@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import utfpr.constructionmaterials.client.ClientApplication;
 import utfpr.constructionmaterials.server.ServerApplication;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
 import utfpr.constructionmaterials.shared.singletons.CurrentIcon;
@@ -18,9 +19,11 @@ public class MainApplication extends Application {
 
     public static void main(String[] args) {
         // Start the server
+        // The server interface will do that
         SpringApplication.run(ServerApplication.class, args);
 
         // Start the client
+        // The Configuration Pane does this
         //SpringApplication.run(ClientApplication.class, args);
 
         // Start the JavaFX crap
@@ -29,9 +32,9 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Parent login = FXMLHelper.load(CONFIGURATION);
+        Parent configuration = FXMLHelper.load(CONFIGURATION);
         CurrentIcon.createInstance();
-        primaryStage.setScene(new Scene(login));
+        primaryStage.setScene(new Scene(configuration));
         primaryStage.show();
         primaryStage.setTitle(APPLICATION_TITLE);
         primaryStage.getIcons().add(CurrentIcon.getInstance().getIcon());

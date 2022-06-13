@@ -67,8 +67,4 @@ public class HomeController implements Initializable {
         FXMLHelper.navigateTo(TRANSACTIONS_LIST, homePane);
     }
 
-    @FXML
-    public void showServerView(ActionEvent actionEvent) {
-        FXMLHelper.navigateTo(SERVER_VIEW, homePane);
-    }
 }

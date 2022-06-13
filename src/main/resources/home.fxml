@@ -47,11 +47,6 @@
             <children>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="570.0" style="-fx-background-color: #f7f8fc;">
                <children>
-                  <Button layoutX="120.0" layoutY="422.0" mnemonicParsing="false" onAction="#showServerView" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Visualização do Servidor" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
                       <Button layoutX="120.0" layoutY="349.0" mnemonicParsing="false" onAction="#donationRegister" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Cadastrar Doacao" textFill="WHITE" wrapText="true">
                      <font>
                         <Font size="18.0" />
