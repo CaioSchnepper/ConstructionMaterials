@@ -15,4 +15,8 @@ public class ReceptionDTO {
 
     private String idReceiver;
 
+    private String description;
+
+    private String measureUnit;
+
 }
