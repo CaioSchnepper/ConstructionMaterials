@@ -53,11 +53,11 @@
     <center>
         <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" style="-fx-background-color: #314c53;" BorderPane.alignment="CENTER">
             <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1023.0" style="-fx-background-color: #202020;">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1024.0" style="-fx-background-color: #202020;">
                <children>
                   <HBox alignment="CENTER" layoutX="347.0" layoutY="598.0" prefHeight="56.0" prefWidth="330.0">
                      <children>
-                            <BottomNavigationButton onAction="#start" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #5a7f78;" text="Iniciar" textFill="WHITE">
+                            <BottomNavigationButton fx:id="startButton" onAction="#start" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #5a7f78; -fx-cursor: hand;" text="Iniciar" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
@@ -65,18 +65,18 @@
                               <Font name="Roboto" size="18.0" />
                            </font>
                         </BottomNavigationButton>
-                            <BottomNavigationButton onAction="#stop" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #5a7f78;" text="Parar" textFill="WHITE">
+                            <BottomNavigationButton fx:id="stopButton" onAction="#stop" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #5a7f78; -fx-cursor: hand;" text="Parar" textFill="WHITE">
                            <font>
                               <Font name="Roboto" size="18.0" />
                            </font>
                         </BottomNavigationButton>
                      </children>
                   </HBox>
-                      <TableView fx:id="usersTable" layoutY="182.0" prefHeight="389.0" prefWidth="1023.0" style="-fx-background-color: #2e2e2e; -fx-min-height: 30;">
+                      <TableView fx:id="usersTable" layoutY="182.0" prefHeight="389.0" prefWidth="1024.0" style="-fx-background-color: #2e2e2e; -fx-min-height: 30;">
                           <columns>
                               <TableColumn fx:id="userName" editable="false" prefWidth="581.0" style="-fx-background-color: #5a7f78;" text="Nome usuario" />
                               <TableColumn fx:id="userIp" editable="false" prefWidth="220.0" style="-fx-background-color: #5a7f78;" text="Endereço IP" />
-                              <TableColumn fx:id="userPort" editable="false" prefWidth="220.0" style="-fx-background-color: #5a7f78;" text="Porta" />
+                              <TableColumn fx:id="userPort" editable="false" prefWidth="222.0" style="-fx-background-color: #5a7f78;" text="Porta" />
                           </columns>
                       </TableView>
                   <TextField fx:id="serverPort" alignment="CENTER" layoutX="346.0" layoutY="134.0" prefHeight="30.0" prefWidth="330.0" promptText="Informe a porta" style="-fx-background-color: #ededed;">
@@ -125,7 +125,7 @@
     <bottom>
         <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="Copyright Mano das Quebradas © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="Copyright Mano das Quebradas © 2022 Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

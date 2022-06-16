@@ -49,11 +49,11 @@
             <children>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="570.0" style="-fx-background-color: #f7f8fc;">
                <children>
-                  <Button layoutX="123.0" layoutY="424.0" mnemonicParsing="false" onAction="#enterServer" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Configurar" textFill="WHITE">
+                  <Button layoutX="123.0" layoutY="424.0" mnemonicParsing="false" onAction="#enterServer" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78; -fx-cursor: hand;" text="Configurar" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="18.0" />
                      </font></Button>
-                      <Button layoutX="123.0" layoutY="486.0" mnemonicParsing="false" onAction="#applicationExit" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Sair" textFill="WHITE">
+                      <Button layoutX="123.0" layoutY="486.0" mnemonicParsing="false" onAction="#applicationExit" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78; -fx-cursor: hand;" text="Sair" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="18.0" />
                      </font></Button>

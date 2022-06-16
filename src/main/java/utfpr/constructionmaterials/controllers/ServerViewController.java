@@ -1,5 +1,6 @@
 package utfpr.constructionmaterials.controllers;
 
+import com.gluonhq.charm.glisten.control.BottomNavigationButton;
 import com.gluonhq.charm.glisten.control.ProgressBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,6 +24,8 @@ import static utfpr.constructionmaterials.shared.constants.ServerConfigs.DEFAULT
 import static utfpr.constructionmaterials.shared.constants.SuccessMessages.SERVER_START_SUCCESS;
 
 public class ServerViewController implements Initializable {
+    private static final String IDLE_BUTTON_STYLE = "-fx-background-color: #5a7f78; -fx-cursor: pointer;";
+    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: #7bada4; -fx-cursor: hand;";
     @FXML
     private TextField serverIp;
     @FXML
@@ -41,13 +44,23 @@ public class ServerViewController implements Initializable {
     private ProgressBar loadingBar;
     @FXML
     private ImageView serverStatus;
+    @FXML
+    private BottomNavigationButton startButton;
+    @FXML
+    private BottomNavigationButton stopButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setServerStatusText(false);
         loadingBar.setVisible(false);
+
         serverIp.setText(DEFAULT_IP);
         serverPort.setText(DEFAULT_PORT);
+
+        startButton.setOnMouseEntered(event -> startButton.setStyle(HOVERED_BUTTON_STYLE));
+        startButton.setOnMouseExited(event -> startButton.setStyle(IDLE_BUTTON_STYLE));
+        stopButton.setOnMouseEntered(event -> stopButton.setStyle(HOVERED_BUTTON_STYLE));
+        stopButton.setOnMouseExited(event -> stopButton.setStyle(IDLE_BUTTON_STYLE));
     }
 
     @FXML
