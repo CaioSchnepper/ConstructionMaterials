@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
 import utfpr.constructionmaterials.shared.singletons.CurrentIcon;
@@ -34,7 +35,6 @@ public class MainApplication extends Application {
         // Server application
         Parent serverView = FXMLHelper.load(SERVER_VIEW);
         Stage serverViewStage = new Stage();
-        serverViewStage.initOwner(primaryStage);
         serverViewStage.setScene(new Scene(serverView));
         serverViewStage.setTitle(APPLICATION_TITLE);
         serverViewStage.getIcons().add(CurrentIcon.getInstance().getIcon());
