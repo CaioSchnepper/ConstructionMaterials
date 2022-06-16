@@ -12,4 +12,5 @@ public class ErrorMessages {
     public static final String NO_INSTANCE_ERROR = "Nao ha uma instancia disponivel";
     public static final String DONATION_NOT_FOUND = "Doacao nao encontrada";
     public static final String APP_START_ERROR = "Erro ao iniciar a aplicacao do cliente";
+    public static final String SERVER_START_ERROR = "Erro ao iniciar a aplicacao do servidor";
 }

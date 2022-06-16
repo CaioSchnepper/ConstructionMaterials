@@ -76,7 +76,7 @@
         <dependency>
             <groupId>com.gluonhq</groupId>
             <artifactId>charm-glisten</artifactId>
-            <version>4.4.1</version>
+            <version>6.0.5</version>
         </dependency>
     </dependencies>
 

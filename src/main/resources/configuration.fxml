@@ -49,13 +49,13 @@
             <children>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="570.0" style="-fx-background-color: #f7f8fc;">
                <children>
-                  <Button layoutX="123.0" layoutY="424.0" mnemonicParsing="false" onAction="#enterServer" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Entrar" textFill="WHITE">
+                  <Button layoutX="123.0" layoutY="424.0" mnemonicParsing="false" onAction="#enterServer" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Configurar" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Roboto" size="18.0" />
                      </font></Button>
-                      <Button layoutX="123.0" layoutY="486.0" mnemonicParsing="false" onAction="#applicationExit" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Cancelar" textFill="WHITE">
+                      <Button layoutX="123.0" layoutY="486.0" mnemonicParsing="false" onAction="#applicationExit" prefHeight="36.0" prefWidth="330.0" style="-fx-background-color: #5a7f78;" text="Sair" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Roboto" size="18.0" />
                      </font></Button>
                       <TextField fx:id="serverPort" alignment="CENTER" layoutX="114.0" layoutY="233.0" prefHeight="36.0" prefWidth="335.0" promptText="Informe a porta" />
                       <Label alignment="CENTER" layoutX="114.0" layoutY="183.0" prefHeight="36.0" prefWidth="335.0" text="Porta" textAlignment="CENTER">
@@ -63,7 +63,7 @@
                         <Font name="Roboto" size="18.0" />
                      </font>
                   </Label>
-                  <ProgressIndicator fx:id="loadingSpinner" layoutX="256.0" layoutY="304.0" style="-fx-progress-color: #2196f3;" />
+                  <ProgressIndicator fx:id="loadingSpinner" layoutX="256.0" layoutY="304.0" style="-fx-progress-color: #5a7f78;" />
                       <TextField fx:id="serverIp" alignment="CENTER" layoutX="118.0" layoutY="112.0" prefHeight="36.0" prefWidth="335.0" promptText="Informe o endereco IP do servidor" />
                       <Label alignment="CENTER" layoutX="118.0" layoutY="53.0" prefHeight="36.0" prefWidth="335.0" text="Endereco IP do servidor">
                      <font>
@@ -90,7 +90,7 @@
     <bottom>
         <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="copyright © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="Copyright © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
