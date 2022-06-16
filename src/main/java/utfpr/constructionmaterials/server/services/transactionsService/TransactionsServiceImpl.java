@@ -20,6 +20,7 @@ import utfpr.constructionmaterials.shared.helpers.ObjectMapperHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static utfpr.constructionmaterials.shared.constants.ErrorMessages.USER_NOT_FOUND;
 
@@ -39,16 +40,24 @@ public class TransactionsServiceImpl implements TransactionsService {
     public EventDTO list(ClientTransactionListDTO clientTransactionListDTO) {
 
         Optional<User> user = usersRepository.findById(clientTransactionListDTO.getClientTransactions().getIdClient());
-        if (user.isPresent()) {
+        if (!user.isPresent()) {
             ErrorDTO error = new ErrorDTO(USER_NOT_FOUND);
             return new TransactionsErrorDTO(error);
         }
 
-        List<Donation> donations = donationsRepository.findAll();
+        List<Donation> donations = donationsRepository
+                .findAll()
+                .stream()
+                .filter(donation -> donation.getIdDonor().equals(user.get().getId()))
+                .collect(Collectors.toList());
         List<DonationFullDTO> donationFullDTOS = new ArrayList<>();
         donations.forEach(donation -> donationFullDTOS.add(ObjectMapperHelper.map(donation, DonationFullDTO.class)));
 
-        List<Reception> receptions = receptionsRepository.findAll();
+        List<Reception> receptions = receptionsRepository
+                .findAll()
+                .stream()
+                .filter(reception -> reception.getIdReceiver().equals(user.get().getId()))
+                .collect(Collectors.toList());
         List<ReceptionFullDTO> receptionFullDTOS = new ArrayList<>();
         receptions.forEach(reception -> receptionFullDTOS.add(ObjectMapperHelper.map(reception, ReceptionFullDTO.class)));
 
