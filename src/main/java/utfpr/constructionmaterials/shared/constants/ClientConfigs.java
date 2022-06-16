@@ -9,4 +9,5 @@ public class ClientConfigs {
     public static final String SERVER_STATUS_OFF = "OFF";
     public static final String ERROR = "Erro";
     public static final String EMPTY = "";
+    public static final Long CONNECTION_TIMEOUT = 60000L; // 60 Seconds
 }

@@ -15,6 +15,8 @@ import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import static utfpr.constructionmaterials.shared.constants.ClientConfigs.CONNECTION_TIMEOUT;
+
 @Configuration
 @EnableScheduling
 public class TcpClientConfig implements ApplicationEventPublisherAware {
@@ -53,6 +55,8 @@ public class TcpClientConfig implements ApplicationEventPublisherAware {
     public MessageHandler outboundGateway(AbstractClientConnectionFactory clientConnectionFactory) {
         TcpOutboundGateway tcpOutboundGateway = new TcpOutboundGateway();
         tcpOutboundGateway.setConnectionFactory(clientConnectionFactory);
+        tcpOutboundGateway.setRemoteTimeout(CONNECTION_TIMEOUT);
+        tcpOutboundGateway.setRequestTimeout(CONNECTION_TIMEOUT);
         return tcpOutboundGateway;
     }
 
