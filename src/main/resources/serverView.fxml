@@ -41,6 +41,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -51,9 +53,9 @@
     <center>
         <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="335.0" style="-fx-background-color: #314c53;" BorderPane.alignment="CENTER">
             <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="844.0" style="-fx-background-color: #f7f8fc;">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1023.0" style="-fx-background-color: #202020;">
                <children>
-                  <HBox alignment="CENTER" layoutX="258.0" layoutY="544.0" prefHeight="56.0" prefWidth="330.0">
+                  <HBox alignment="CENTER" layoutX="347.0" layoutY="598.0" prefHeight="56.0" prefWidth="330.0">
                      <children>
                             <BottomNavigationButton onAction="#start" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #5a7f78;" text="Iniciar" textFill="WHITE">
                            <HBox.margin>
@@ -70,46 +72,51 @@
                         </BottomNavigationButton>
                      </children>
                   </HBox>
-                      <TableView fx:id="usersTable" layoutY="164.0" prefHeight="365.0" prefWidth="844.0">
+                      <TableView fx:id="usersTable" layoutY="182.0" prefHeight="389.0" prefWidth="1023.0" style="-fx-background-color: #2e2e2e; -fx-min-height: 30;">
                           <columns>
-                              <TableColumn fx:id="userName" prefWidth="296.0" text="Nome usuario" />
-                              <TableColumn fx:id="userIp" prefWidth="385.0" text="IP" />
-                              <TableColumn fx:id="userPort" prefWidth="162.0" text="Porta" />
+                              <TableColumn fx:id="userName" editable="false" prefWidth="581.0" style="-fx-background-color: #5a7f78;" text="Nome usuario" />
+                              <TableColumn fx:id="userIp" editable="false" prefWidth="220.0" style="-fx-background-color: #5a7f78;" text="Endereço IP" />
+                              <TableColumn fx:id="userPort" editable="false" prefWidth="220.0" style="-fx-background-color: #5a7f78;" text="Porta" />
                           </columns>
                       </TableView>
-                  <TextField fx:id="serverPort" alignment="CENTER" layoutX="258.0" layoutY="110.0" prefHeight="30.0" prefWidth="330.0" promptText="Informe a porta" />
-                      <Label layoutX="401.0" layoutY="87.0" text="Porta">
+                  <TextField fx:id="serverPort" alignment="CENTER" layoutX="346.0" layoutY="134.0" prefHeight="30.0" prefWidth="330.0" promptText="Informe a porta" style="-fx-background-color: #ededed;">
                      <font>
-                        <Font name="Roboto" size="18.0" />
+                        <Font name="Roboto" size="14.0" />
+                     </font></TextField>
+                  <TextField fx:id="serverIp" alignment="CENTER" layoutX="346.0" layoutY="49.0" prefHeight="30.0" prefWidth="330.0" promptText="Informe o endereço IP" style="-fx-background-color: #ededed;">
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font></TextField>
+                  <ProgressBar fx:id="loadingBar" layoutY="571.0" prefHeight="11.0" prefWidth="1023.0" style="-fx-color: #5a7f78;" />
+                  <Label layoutX="474.0" layoutY="25.0" text="Endereço IP" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="serverIp" alignment="CENTER" layoutX="258.0" layoutY="37.0" prefHeight="30.0" prefWidth="330.0" promptText="Informe o ip" />
-                      <Label layoutX="415.0" layoutY="14.0" text="IP">
+                  <Label layoutX="495.0" layoutY="108.0" text="Porta" textFill="WHITE">
                      <font>
-                        <Font name="Roboto" size="18.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="loadingBar" layoutX="1.0" layoutY="529.0" prefHeight="11.0" prefWidth="844.0" style="-fx-color: #5a7f78;" />
                </children>
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets />
                </VBox.margin>
             </Pane>
             </children>
         </VBox>
     </center>
     <top>
-        <Pane fx:id="serverViewPane" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="1.0" prefHeight="75.0" prefWidth="247.0" text="Status do Servidor:" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <Pane fx:id="serverViewPane" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="13.0" prefHeight="75.0" prefWidth="297.0" text="Status do Servidor:" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                 <font>
-                    <Font name="Roboto Bold" size="28.0" />
+                    <Font name="Roboto Bold" size="32.0" />
                 </font>
             </Label>
-         <Label fx:id="serverStatus" layoutX="313.0" layoutY="20.0" prefHeight="42.0" prefWidth="133.0" text="UNKNOWN" textFill="#bbdec6">
-            <font>
-               <Font name="System Bold" size="24.0" />
-            </font>
-         </Label>
+         <ImageView fx:id="serverStatus" fitHeight="47.0" fitWidth="128.0" layoutX="311.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@off.png" />
+            </image></ImageView>
             <effect>
                 <DropShadow />
             </effect>
@@ -118,7 +125,7 @@
     <bottom>
         <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: #010300;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="copyright © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1048.0" text="Copyright Mano das Quebradas © Todos os direitos reservados" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

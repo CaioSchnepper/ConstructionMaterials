@@ -4,28 +4,25 @@ import com.gluonhq.charm.glisten.control.ProgressBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import utfpr.constructionmaterials.entities.users.User;
 import utfpr.constructionmaterials.server.services.serverApplicationService.ServerApplicationService;
 import utfpr.constructionmaterials.shared.constants.ErrorMessages;
+import utfpr.constructionmaterials.shared.constants.ServerImages;
 import utfpr.constructionmaterials.shared.helpers.FXMLHelper;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static utfpr.constructionmaterials.shared.constants.ClientConfigs.SERVER_STATUS_OFF;
-import static utfpr.constructionmaterials.shared.constants.ClientConfigs.SERVER_STATUS_ON;
 import static utfpr.constructionmaterials.shared.constants.ServerConfigs.DEFAULT_IP;
 import static utfpr.constructionmaterials.shared.constants.ServerConfigs.DEFAULT_PORT;
 import static utfpr.constructionmaterials.shared.constants.SuccessMessages.SERVER_START_SUCCESS;
 
 public class ServerViewController implements Initializable {
-    @FXML
-    private Label serverStatus;
     @FXML
     private TextField serverIp;
     @FXML
@@ -42,6 +39,8 @@ public class ServerViewController implements Initializable {
     private Pane serverViewPane;
     @FXML
     private ProgressBar loadingBar;
+    @FXML
+    private ImageView serverStatus;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -84,11 +83,9 @@ public class ServerViewController implements Initializable {
 
     private void setServerStatusText(boolean isWorking) {
         if (isWorking) {
-            serverStatus.setText(SERVER_STATUS_ON);
-            serverStatus.setStyle("-fx-text-fill: greenyellow;");
+            serverStatus.setImage(ServerImages.ON);
         } else {
-            serverStatus.setText(SERVER_STATUS_OFF);
-            serverStatus.setStyle("-fx-text-fill: red;");
+            serverStatus.setImage(ServerImages.OFF);
         }
     }
 
