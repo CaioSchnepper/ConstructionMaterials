@@ -69,7 +69,6 @@ public class ServerViewController implements Initializable {
             loadingBar.setVisible(false);
             FXMLHelper.showSuccessAlert(SERVER_START_SUCCESS);
             setServerStatusText(true);
-
         });
 
         serverApplicationService.setOnFailed(workerStateEvent -> {

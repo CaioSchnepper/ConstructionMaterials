@@ -62,12 +62,12 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto" size="18.0" />
                            </font>
                         </BottomNavigationButton>
                             <BottomNavigationButton onAction="#stop" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #5a7f78;" text="Parar" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto" size="18.0" />
                            </font>
                         </BottomNavigationButton>
                      </children>
@@ -108,14 +108,14 @@
     </center>
     <top>
         <Pane fx:id="serverViewPane" prefHeight="100.0" prefWidth="335.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="13.0" prefHeight="75.0" prefWidth="297.0" text="Status do Servidor:" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="13.0" prefHeight="75.0" prefWidth="297.0" text="Status do Servidor" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                 <font>
                     <Font name="Roboto Bold" size="32.0" />
                 </font>
             </Label>
          <ImageView fx:id="serverStatus" fitHeight="47.0" fitWidth="128.0" layoutX="311.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@off.png" />
+               <Image url="@off.gif" />
             </image></ImageView>
             <effect>
                 <DropShadow />
