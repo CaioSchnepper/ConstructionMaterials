@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import utfpr.constructionmaterials.events.donations.DonationUpdateDTO;
 
-import java.util.UUID;
+import java.util.Random;
 
 @Document("Donations")
 @Data
@@ -17,7 +17,7 @@ import java.util.UUID;
 public class Donation {
 
     @Id
-    private String id = UUID.randomUUID().toString();
+    private String id = String.valueOf(new Random().nextInt(Integer.MAX_VALUE));
 
     @NonNull
     private Long quantity;
